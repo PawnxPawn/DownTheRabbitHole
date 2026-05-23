@@ -25,8 +25,7 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Label" type="Label" parent="Title" unique_id=1969517463]
 layout_mode = 2
-text = "Connected by 
-the Hip"
+text = "Down The Rabbit Hole"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Title" unique_id=175145172]
