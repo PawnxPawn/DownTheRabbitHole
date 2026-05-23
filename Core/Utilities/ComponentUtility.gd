@@ -10,6 +10,7 @@ enum ComponentType {
 	GRAVITY,
 	INPUT_SOURCE,
 	MOVE,
+	JUMP,
 	PLAYER_INPUT,
 }
 
@@ -29,6 +30,10 @@ const COMPONENT_DATA = {
 	ComponentType.MOVE: {
 		Field.NAME: &"MoveComponent",
 		Field.PATH: &"uid://bbes4yv7s8fo6",
+	},
+	ComponentType.JUMP: {
+		Field.NAME: &"JumpComponent",
+		Field.PATH: &"uid://c8xm625ihwcl0",
 	},
 	ComponentType.PLAYER_INPUT: {
 		Field.NAME: &"PlayerInput",

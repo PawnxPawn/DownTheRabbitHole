@@ -2,7 +2,7 @@ class_name MoveComponent extends Component
 
 signal velocity_zeroed
 
-var speed: float = 15.0
+var speed: float = 230.0
 var slow_down_speed: float = 20.0
 var _direction: float = 0.0
 var _last_direction: float = 0.0

@@ -14,6 +14,7 @@ func _process_move(_delta:float) -> void:
 
 func _process_input(_delta:float) -> void:
 	if Input.is_action_just_pressed("Jump"):
+		print_debug("Jump input detected")
 		jump_pressed.emit()
 
 

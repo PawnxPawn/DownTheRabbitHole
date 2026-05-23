@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://qusq2tb6b6b0" path="res://Scenes/Entities/Players/Player.gd" id="1_rnj17"]
 [ext_resource type="Script" uid="uid://f8jmr8kubvtq" path="res://Core/Utilities/ComponentHandler.gd" id="2_4xrd3"]
+[ext_resource type="Texture2D" uid="uid://dma1pl674eq1e" path="res://Scenes/Entities/Players/mario_sprite.webp" id="2_tqe6c"]
 [ext_resource type="Script" uid="uid://l0vqpkec40fk" path="res://Core/Components/InputComponent/PlayerInput.gd" id="3_tqe6c"]
 [ext_resource type="Script" uid="uid://c7ty7fal5h25k" path="res://Core/Components/GravityComponent.gd" id="4_8ildv"]
 [ext_resource type="Script" uid="uid://bbes4yv7s8fo6" path="res://Core/Components/MoveComponent.gd" id="5_oet8y"]
 [ext_resource type="Script" uid="uid://c2yuguogg3wvo" path="res://Core/FSM/StateMachine.gd" id="6_ynm40"]
+[ext_resource type="Script" uid="uid://c8xm625ihwcl0" path="res://Core/Components/JumpComponent.gd" id="7_8ildv"]
 [ext_resource type="Script" uid="uid://dlg3g6fyga4wa" path="res://Scenes/Entities/Players/States/PlayerIdle.gd" id="7_cbjid"]
 [ext_resource type="Script" uid="uid://bge753gyqgnot" path="res://Scenes/Entities/Players/States/PlayerMove.gd" id="8_sod1g"]
+[ext_resource type="Script" uid="uid://cvfrllxfyt77b" path="res://Scenes/Entities/Players/States/PlayerJump.gd" id="10_tqe6c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6c33f"]
 radius = 7.0
@@ -22,16 +25,20 @@ script = ExtResource("1_rnj17")
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_6c33f")
 
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=922070812]
+scale = Vector2(0.053, 0.053)
+texture = ExtResource("2_tqe6c")
+
 [node name="ComponentHandler" type="Node" parent="." unique_id=984005704]
 unique_name_in_owner = true
 script = ExtResource("2_4xrd3")
-default_components = Array[Script]([ExtResource("3_tqe6c"), ExtResource("4_8ildv"), ExtResource("5_oet8y")])
+default_components = Array[Script]([ExtResource("3_tqe6c"), ExtResource("4_8ildv"), ExtResource("5_oet8y"), ExtResource("7_8ildv")])
 metadata/_custom_type_script = "uid://f8jmr8kubvtq"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1781170429]
 unique_name_in_owner = true
 script = ExtResource("6_ynm40")
-state_scripts = Array[GDScript]([ExtResource("7_cbjid"), ExtResource("8_sod1g")])
+state_scripts = Array[GDScript]([ExtResource("7_cbjid"), ExtResource("8_sod1g"), ExtResource("10_tqe6c")])
 metadata/_custom_type_script = "uid://c2yuguogg3wvo"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=476638083]
