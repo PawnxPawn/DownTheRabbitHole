@@ -39,21 +39,31 @@ func _connect_components() -> void:
 		_handler.set_active(JumpComponent, true)
 		input.jump_pressed.connect(jump._on_jump)
 		jump.jump_ended.connect(_not_jumping)
-		gravity.grounded.connect(func (): jump.set_is_midair(false))
+		gravity.grounded.connect(set_is_midair)
 		
-	
+
+
+func set_is_midair() -> void:
+	var jump: JumpComponent = _handler.get_component(JumpComponent)
+	jump.set_is_midair(false)
+
 
 func _disconnect_components() -> void:
 	var input:InputSource = _handler.get_component(InputSource)
 	if input:
 		_handler.set_active(InputSource, false)
 	
+	var movement: MoveComponent = _handler.get_component(MoveComponent)
+	if movement:
+		input.moved.disconnect(movement._on_moved)
+	
 	var jump: JumpComponent = _handler.get_component(JumpComponent)
 	if jump:
 		_handler.set_active(JumpComponent, false)
 		input.jump_pressed.disconnect(jump._on_jump)
-		jump.jump_ended.disconnect(func (): pass)
+		jump.jump_ended.disconnect(_not_jumping)
 	
 	var gravity: GravityComponent = _handler.get_component(GravityComponent)
 	if gravity:
 		_handler.set_active(GravityComponent, false)
+		gravity.grounded.disconnect(set_is_midair)
