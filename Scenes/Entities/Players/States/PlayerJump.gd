@@ -39,6 +39,7 @@ func _connect_components() -> void:
 		_handler.set_active(JumpComponent, true)
 		input.jump_pressed.connect(jump._on_jump)
 		jump.jump_ended.connect(_not_jumping)
+		gravity.grounded.connect(func (): jump.set_is_midair(false))
 		
 	
 
@@ -51,7 +52,7 @@ func _disconnect_components() -> void:
 	if jump:
 		_handler.set_active(JumpComponent, false)
 		input.jump_pressed.disconnect(jump._on_jump)
-		jump.jump_ended.disconnect(_not_jumping)
+		jump.jump_ended.disconnect(func (): pass)
 	
 	var gravity: GravityComponent = _handler.get_component(GravityComponent)
 	if gravity:
