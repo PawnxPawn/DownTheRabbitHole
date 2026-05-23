@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ly8du5vsig8o"]
 
+[ext_resource type="Script" uid="uid://ccq0hf8j58j70" path="res://Core/Components/Audio/AudioManager.gd" id="1_6rbyg"]
 [ext_resource type="Texture2D" uid="uid://bhfkehoi0c68a" path="res://Scenes/Levels/Test/alice_forest_arrows.webp" id="1_ux546"]
 [ext_resource type="PackedScene" uid="uid://cttr31v204b41" path="res://Scenes/Entities/Players/Player.tscn" id="1_vykkw"]
 
@@ -7,6 +8,7 @@
 size = Vector2(572, 44)
 
 [node name="Test" type="Node2D" unique_id=1225936681]
+script = ExtResource("1_6rbyg")
 
 [node name="TextureRect - Bkg" type="TextureRect" parent="." unique_id=1423629863]
 offset_left = -251.0

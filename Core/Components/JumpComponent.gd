@@ -20,6 +20,8 @@ func _jump_action() -> void:
 	body.velocity.y -= _jump_speed
 	body.move_and_slide()
 	
+	play_jump_sound_effect()
+
 
 func physics_process(_delta: float) -> void:
 	var body := _owner as CharacterBody2D
@@ -35,3 +37,12 @@ func integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 
 func set_is_midair(is_midair: bool):
 	_is_midair = is_midair
+
+
+func play_jump_sound_effect():
+	var audio_manager = AudioManager.AUDIO_MANAGER_INSTANCE
+	if audio_manager:
+		audio_manager.play_sound(
+			AudioManager.AudioType.TEMPORARY,
+			AudioManager.COMMON_SOUND_PATHS.JUMP_SOUND_EFFECT
+		)

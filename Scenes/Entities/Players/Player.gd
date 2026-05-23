@@ -7,6 +7,7 @@ class_name Player extends Entity
 func _ready() -> void:
 	_set_sm()
 	_connect_signals()
+	
 
 
 func _set_sm() -> void:
