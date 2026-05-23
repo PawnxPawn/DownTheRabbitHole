@@ -27,12 +27,10 @@ func _connect_components() -> void:
 	var input:InputSource = _handler.get_component(InputSource)
 	var gravity:GravityComponent = _handler.get_component(GravityComponent)
 	
-	
 	if input:
 		_handler.set_active(InputSource, true)
 		input.moved.connect(_on_moved)
 		input.jump_pressed.connect(_on_jump) # Connect jump signal to _on_jump method
-		
 	
 	if gravity:
 		_handler.set_active(GravityComponent, true)

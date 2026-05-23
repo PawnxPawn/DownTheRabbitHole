@@ -4,17 +4,16 @@ func _init() -> void:
 	state_name = &"Jump"
 
 func enter() -> void:
-	print_debug("PlayerJump.enter")
 	_connect_components()
 
 
 func exit() -> void:
-	print_debug("PlayerJump.exit")
 	_disconnect_components()
 
 
 #Signals
 func _not_jumping() -> void:
+	print("Transition to idle")
 	#transition_to(&"Falling")
 	transition_to(&"Idle")
 
@@ -37,9 +36,10 @@ func _connect_components() -> void:
 		input.moved.connect(movement._on_moved)
 	
 	if jump:
-		print_debug("Set jump component active")
 		_handler.set_active(JumpComponent, true)
-		jump._on_jump()
+		input.jump_pressed.connect(jump._on_jump)
+		jump.jump_ended.connect(_not_jumping)
+		
 	
 
 func _disconnect_components() -> void:

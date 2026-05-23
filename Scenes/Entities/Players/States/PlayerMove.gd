@@ -19,6 +19,7 @@ func _not_moving() -> void:
 #Helpers
 func _connect_components() -> void:
 	var input:InputSource = _handler.get_component(InputSource)
+	#var jump: JumpComponent = _handler.get_component(JumpComponent)
 	var movement:MoveComponent = _handler.get_component(MoveComponent)
 	var gravity: GravityComponent = _handler.get_component(GravityComponent)
 	
@@ -27,6 +28,10 @@ func _connect_components() -> void:
 	
 	if input:
 		_handler.set_active(InputSource, true)
+	
+	#if jump:
+		#_handler.set_active(JumpComponent, true)
+		#input.jump_pressed.connect(jump._on_jump)
 	
 	if movement:
 		print_debug("Set move component active")

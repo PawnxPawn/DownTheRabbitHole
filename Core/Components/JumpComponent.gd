@@ -21,7 +21,7 @@ func _jump_action() -> void:
 func physics_process(_delta: float) -> void:
 	var body := _owner as CharacterBody2D
 	if body.velocity.y >= 0:
-		print_debug("Jump ended")
+		#print_debug("Jump ended")
 		jump_ended.emit()
 
 func integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
