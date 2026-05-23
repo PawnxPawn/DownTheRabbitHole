@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qusq2tb6b6b0" path="res://Scenes/Entities/Players/Player.gd" id="1_rnj17"]
 [ext_resource type="Script" uid="uid://f8jmr8kubvtq" path="res://Core/Utilities/ComponentHandler.gd" id="2_4xrd3"]
+[ext_resource type="Texture2D" uid="uid://dma1pl674eq1e" path="res://Scenes/Entities/Players/mario_sprite.webp" id="2_tqe6c"]
 [ext_resource type="Script" uid="uid://l0vqpkec40fk" path="res://Core/Components/InputComponent/PlayerInput.gd" id="3_tqe6c"]
 [ext_resource type="Script" uid="uid://c7ty7fal5h25k" path="res://Core/Components/GravityComponent.gd" id="4_8ildv"]
 [ext_resource type="Script" uid="uid://bbes4yv7s8fo6" path="res://Core/Components/MoveComponent.gd" id="5_oet8y"]
@@ -21,6 +22,10 @@ script = ExtResource("1_rnj17")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1761057293]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_6c33f")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=922070812]
+scale = Vector2(0.053, 0.053)
+texture = ExtResource("2_tqe6c")
 
 [node name="ComponentHandler" type="Node" parent="." unique_id=984005704]
 unique_name_in_owner = true
