@@ -1,0 +1,50 @@
+extends State
+
+func _init() -> void:
+	state_name = &"Jump"
+
+func enter() -> void:
+	_connect_components()
+
+
+func exit() -> void:
+	_disconnect_components()
+
+
+#Signals
+func _not_jumping() -> void:
+	transition_to(&"Falling")
+
+
+#Helpers
+func _connect_components() -> void:
+	var input:InputSource = _handler.get_component(InputSource)
+	var jump: JumpComponent = _handler.get_component(JumpComponent)
+	var gravity: GravityComponent = _handler.get_component(GravityComponent)
+	
+	if gravity:
+		_handler.set_active(GravityComponent, true)
+	
+	if input:
+		_handler.set_active(InputSource, true)
+	
+	if jump:
+		_handler.set_active(JumpComponent, true)
+		input.jump_pressed.connect(jump._on_jump)
+		#jump.velocity_zeroed.connect(_not_jumping
+	
+
+func _disconnect_components() -> void:
+	var input:InputSource = _handler.get_component(InputSource)
+	if input:
+		_handler.set_active(InputSource, false)
+	
+	var jump: JumpComponent = _handler.get_component(JumpComponent)
+	if jump:
+		_handler.set_active(JumpComponent, false)
+		input.jump_pressed.disconnect(jump._on_jump)
+		#jump.velocity_zeroed.disconnect(_not_jumping)
+	
+	var gravity: GravityComponent = _handler.get_component(GravityComponent)
+	if gravity:
+		_handler.set_active(GravityComponent, false)

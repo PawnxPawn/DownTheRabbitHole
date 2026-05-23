@@ -1,5 +1,6 @@
 class_name GravityComponent extends Component
 
+signal jumped
 signal grounded
 signal left_floor
 
