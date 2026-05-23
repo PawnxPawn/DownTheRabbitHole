@@ -2,6 +2,7 @@ extends Entity
 
 @onready var _sm: StateMachine = %StateMachine
 @onready var _handler: ComponentHandler = %ComponentHandler
+@onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	_set_sm()

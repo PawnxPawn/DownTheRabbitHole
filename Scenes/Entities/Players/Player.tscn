@@ -2,19 +2,161 @@
 
 [ext_resource type="Script" uid="uid://qusq2tb6b6b0" path="res://Scenes/Entities/Players/Player.gd" id="1_rnj17"]
 [ext_resource type="Script" uid="uid://f8jmr8kubvtq" path="res://Core/Utilities/ComponentHandler.gd" id="2_4xrd3"]
-[ext_resource type="Texture2D" uid="uid://dma1pl674eq1e" path="res://Scenes/Entities/Players/mario_sprite.webp" id="2_tqe6c"]
 [ext_resource type="Script" uid="uid://l0vqpkec40fk" path="res://Core/Components/InputComponent/PlayerInput.gd" id="3_tqe6c"]
 [ext_resource type="Script" uid="uid://c7ty7fal5h25k" path="res://Core/Components/GravityComponent.gd" id="4_8ildv"]
 [ext_resource type="Script" uid="uid://bbes4yv7s8fo6" path="res://Core/Components/MoveComponent.gd" id="5_oet8y"]
 [ext_resource type="Script" uid="uid://c2yuguogg3wvo" path="res://Core/FSM/StateMachine.gd" id="6_ynm40"]
-[ext_resource type="Script" uid="uid://c8xm625ihwcl0" path="res://Core/Components/JumpComponent.gd" id="7_8ildv"]
+[ext_resource type="Script" path="res://Core/Components/JumpComponent.gd" id="7_8ildv"]
 [ext_resource type="Script" uid="uid://dlg3g6fyga4wa" path="res://Scenes/Entities/Players/States/PlayerIdle.gd" id="7_cbjid"]
 [ext_resource type="Script" uid="uid://bge753gyqgnot" path="res://Scenes/Entities/Players/States/PlayerMove.gd" id="8_sod1g"]
 [ext_resource type="Script" uid="uid://cvfrllxfyt77b" path="res://Scenes/Entities/Players/States/PlayerJump.gd" id="10_tqe6c"]
+[ext_resource type="Texture2D" uid="uid://di87xhcgivx4j" path="res://Assets/Alice/Alice_Curtsy-sheet.png" id="11_ynm40"]
+[ext_resource type="Texture2D" uid="uid://cmrssntg1dru5" path="res://Assets/Alice/Alice_Walking-sheet.png" id="12_cbjid"]
+[ext_resource type="Texture2D" uid="uid://saa5xisxg6l3" path="res://Assets/Alice/Alice_WalkingnJumping-sheet.png" id="13_sod1g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6c33f"]
 radius = 7.0
 height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wom6s"]
+atlas = ExtResource("11_ynm40")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0q0x"]
+atlas = ExtResource("11_ynm40")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hmx1"]
+atlas = ExtResource("11_ynm40")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avkiy"]
+atlas = ExtResource("11_ynm40")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t82er"]
+atlas = ExtResource("11_ynm40")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vg5v"]
+atlas = ExtResource("12_cbjid")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uj7u"]
+atlas = ExtResource("13_sod1g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s58pu"]
+atlas = ExtResource("13_sod1g")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6ngh"]
+atlas = ExtResource("13_sod1g")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1pmp"]
+atlas = ExtResource("13_sod1g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ad6h"]
+atlas = ExtResource("13_sod1g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoj63"]
+atlas = ExtResource("12_cbjid")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w53h4"]
+atlas = ExtResource("12_cbjid")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulv25"]
+atlas = ExtResource("12_cbjid")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq17s"]
+atlas = ExtResource("12_cbjid")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foep3"]
+atlas = ExtResource("12_cbjid")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87rjk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wom6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0q0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hmx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avkiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t82er")
+}],
+"loop": true,
+"name": &"Curtsy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vg5v")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uj7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s58pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6ngh")
+}],
+"loop": true,
+"name": &"JumpDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1pmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ad6h")
+}],
+"loop": true,
+"name": &"JumpUp",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoj63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w53h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulv25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq17s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foep3")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 8.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=877999862]
 collision_layer = 2
@@ -24,10 +166,6 @@ script = ExtResource("1_rnj17")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1761057293]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_6c33f")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=922070812]
-scale = Vector2(0.053, 0.053)
-texture = ExtResource("2_tqe6c")
 
 [node name="ComponentHandler" type="Node" parent="." unique_id=984005704]
 unique_name_in_owner = true
@@ -42,3 +180,7 @@ state_scripts = Array[GDScript]([ExtResource("7_cbjid"), ExtResource("8_sod1g"),
 metadata/_custom_type_script = "uid://c2yuguogg3wvo"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=476638083]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=44745863]
+sprite_frames = SubResource("SpriteFrames_87rjk")
+animation = &"Curtsy"
