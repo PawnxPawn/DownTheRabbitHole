@@ -14,6 +14,11 @@ func _on_moved(direction: float) -> void:
 	elif _owner is RigidBody2D:
 		_direction = direction
 
+
+func move(direction: Vector2) -> void:
+	if not _owner is Node2D: return
+	_move_node2d(direction)
+
 func _move_char2d(direction: float) -> void:
 	var body := _owner as CharacterBody2D
 	if not body: return
@@ -21,6 +26,12 @@ func _move_char2d(direction: float) -> void:
 	if body.velocity.x == 0.0:
 		velocity_zeroed.emit()
 	body.move_and_slide()
+
+
+func _move_node2d(direction: Vector2) -> void:
+	var body := _owner as Node2D
+	if not body: return
+	body.position += direction * speed * body.get_process_delta_time()
 
 func integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if signf(_direction) != signf(_last_direction) and _last_direction != 0.0:

@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://0x1cq8hkktby"]
 
+[ext_resource type="Script" uid="uid://fmxvqgo6vwjq" path="res://Core/Spawners/Projectile/ProjectileSpawner.gd" id="1_g4n5d"]
 [ext_resource type="Texture2D" uid="uid://dmo6xoqnsmpca" path="res://icon.svg" id="1_ws0pt"]
 [ext_resource type="PackedScene" uid="uid://cttr31v204b41" path="res://Scenes/Entities/Players/Player.tscn" id="1_xbcw7"]
 [ext_resource type="PackedScene" uid="uid://c8cup0vyn2sl2" path="res://Scenes/Entities/Pickups/CakePickup.tscn" id="3_bf6r1"]
 [ext_resource type="PackedScene" uid="uid://by1dqji72f12n" path="res://Scenes/Entities/Pickups/CookiePickup.tscn" id="4_6yucw"]
 [ext_resource type="PackedScene" uid="uid://bvftrn7boelik" path="res://Scenes/Entities/Pickups/DrinkPickup.tscn" id="5_g4n5d"]
+[ext_resource type="PackedScene" uid="uid://xk3jffsabrlx" path="res://Scenes/Entities/Projectiles/Projectile.tscn" id="6_6yucw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbcw7"]
 size = Vector2(883, 128)
@@ -34,3 +36,20 @@ position = Vector2(182, 253)
 
 [node name="DrinkPickup" parent="." unique_id=1046752657 instance=ExtResource("5_g4n5d")]
 position = Vector2(151, 255)
+
+[node name="Projectile" parent="." unique_id=168356275 instance=ExtResource("6_6yucw")]
+position = Vector2(465, 239)
+
+[node name="Projectile2" parent="." unique_id=711672848 instance=ExtResource("6_6yucw")]
+position = Vector2(506, 250)
+
+[node name="Projectile3" parent="." unique_id=713421940 instance=ExtResource("6_6yucw")]
+position = Vector2(545, 227)
+
+[node name="ProjectileSpawner" type="Marker2D" parent="." unique_id=421225418]
+position = Vector2(613, 252)
+script = ExtResource("1_g4n5d")
+projectile = ExtResource("6_6yucw")
+should_repeat = true
+repeat_time = 2.0
+metadata/_custom_type_script = "uid://fmxvqgo6vwjq"
