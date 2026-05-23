@@ -5,6 +5,18 @@ func _init() -> void:
 
 func enter() -> void:
 	_connect_components()
+	var body := _owner as Player
+	if body:
+		body.animation.play(&"JumpUp")
+
+
+func process_physics(_delta: float) -> void:
+	var body := _owner as Player
+	if not body: return
+	if body.is_on_floor():
+		var jump: JumpComponent = _handler.get_component(JumpComponent)
+		jump.set_is_midair(false)
+		transition_to(&"Idle")
 
 
 func exit() -> void:
@@ -13,9 +25,10 @@ func exit() -> void:
 
 #Signals
 func _not_jumping() -> void:
-	print("Transition to idle")
+	var body := _owner as Player
+	if body:
+		body.animation.play(&"Fall")
 	#transition_to(&"Falling")
-	transition_to(&"Idle")
 
 
 #Helpers

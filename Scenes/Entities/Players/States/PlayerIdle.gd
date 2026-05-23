@@ -5,6 +5,9 @@ func _init() -> void:
 
 func enter() -> void:
 	_connect_components()
+	var body := _owner as Player
+	if body:
+		body.animation.play(&"Idle")
 
 
 func exit() -> void:

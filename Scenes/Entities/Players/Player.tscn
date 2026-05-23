@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://di87xhcgivx4j" path="res://Assets/Alice/Alice_Curtsy-sheet.png" id="11_ynm40"]
 [ext_resource type="Texture2D" uid="uid://cmrssntg1dru5" path="res://Assets/Alice/Alice_Walking-sheet.png" id="12_cbjid"]
 [ext_resource type="Texture2D" uid="uid://saa5xisxg6l3" path="res://Assets/Alice/Alice_WalkingnJumping-sheet.png" id="13_sod1g"]
+[ext_resource type="Script" uid="uid://b72iblka7apip" path="res://Core/Components/Hitbox/Hitbox.gd" id="14_cbjid"]
+[ext_resource type="Script" uid="uid://cnek7tq1gystt" path="res://Core/Components/PickupComponent/PickupComponent.gd" id="15_sod1g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6c33f"]
 radius = 7.0
@@ -38,10 +40,6 @@ region = Rect2(96, 0, 32, 32)
 atlas = ExtResource("11_ynm40")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4vg5v"]
-atlas = ExtResource("12_cbjid")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uj7u"]
 atlas = ExtResource("13_sod1g")
 region = Rect2(64, 0, 32, 32)
@@ -50,12 +48,8 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("13_sod1g")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m6ngh"]
-atlas = ExtResource("13_sod1g")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w1pmp"]
-atlas = ExtResource("13_sod1g")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vg5v"]
+atlas = ExtResource("12_cbjid")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ad6h"]
@@ -106,6 +100,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_1uj7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s58pu")
+}],
+"loop": false,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4vg5v")
 }],
 "loop": true,
@@ -114,26 +119,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1uj7u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s58pu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m6ngh")
-}],
-"loop": true,
-"name": &"JumpDown",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w1pmp")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_1ad6h")
 }],
-"loop": true,
+"loop": false,
 "name": &"JumpUp",
 "speed": 7.0
 }, {
@@ -157,6 +145,9 @@ animations = [{
 "name": &"Walk",
 "speed": 8.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sod1g"]
+radius = 6.0
 
 [node name="Player" type="CharacterBody2D" unique_id=877999862]
 collision_layer = 2
@@ -183,4 +174,24 @@ metadata/_custom_type_script = "uid://c2yuguogg3wvo"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=44745863]
 sprite_frames = SubResource("SpriteFrames_87rjk")
-animation = &"Curtsy"
+animation = &"Fall"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=949408145]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("14_cbjid")
+metadata/_custom_type_script = "uid://b72iblka7apip"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=25952689]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_sod1g")
+
+[node name="PickupComponent" type="Area2D" parent="." unique_id=1867160276]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("15_sod1g")
+metadata/_custom_type_script = "uid://cnek7tq1gystt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent" unique_id=2073446846]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_6c33f")
