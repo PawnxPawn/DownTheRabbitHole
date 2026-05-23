@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bvftrn7boelik"]
+
+[ext_resource type="PackedScene" uid="uid://ddgw11yi7bl4h" path="res://Scenes/Entities/Pickups/Pickup.tscn" id="1_obbbw"]
+
+[node name="DrinkPickup" unique_id=84181667 instance=ExtResource("1_obbbw")]
+item_type = 1
+
+[node name="Pickup" parent="." index="0" unique_id=1431168252]
+modulate = Color(0, 1, 1, 1)

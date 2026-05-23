@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ddgw11yi7bl4h"]
+
+[ext_resource type="Script" uid="uid://rlgn8858ljvd" path="res://Core/Base/Pickup.gd" id="1_isc5w"]
+[ext_resource type="Texture2D" uid="uid://dmo6xoqnsmpca" path="res://icon.svg" id="1_yfnwr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isc5w"]
+size = Vector2(16, 16)
+
+[node name="Pickup" type="Area2D" unique_id=84181667]
+collision_layer = 8
+collision_mask = 0
+input_pickable = false
+monitoring = false
+script = ExtResource("1_isc5w")
+
+[node name="Pickup" type="Sprite2D" parent="." unique_id=1431168252]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_yfnwr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=467078682]
+shape = SubResource("RectangleShape2D_isc5w")

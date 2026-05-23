@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://0x1cq8hkktby"]
+
+[ext_resource type="Texture2D" uid="uid://dmo6xoqnsmpca" path="res://icon.svg" id="1_ws0pt"]
+[ext_resource type="PackedScene" uid="uid://cttr31v204b41" path="res://Scenes/Entities/Players/Player.tscn" id="1_xbcw7"]
+[ext_resource type="PackedScene" uid="uid://c8cup0vyn2sl2" path="res://Scenes/Entities/Pickups/CakePickup.tscn" id="3_bf6r1"]
+[ext_resource type="PackedScene" uid="uid://by1dqji72f12n" path="res://Scenes/Entities/Pickups/CookiePickup.tscn" id="4_6yucw"]
+[ext_resource type="PackedScene" uid="uid://bvftrn7boelik" path="res://Scenes/Entities/Pickups/DrinkPickup.tscn" id="5_g4n5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbcw7"]
+size = Vector2(883, 128)
+
+[node name="PickupTest" type="Node2D" unique_id=529405666]
+
+[node name="Player" parent="." unique_id=877999862 instance=ExtResource("1_xbcw7")]
+position = Vector2(307, 256)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=256806620]
+position = Vector2(301, 345)
+scale = Vector2(6.890625, 1)
+texture = ExtResource("1_ws0pt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon" unique_id=2031633744]
+scale = Vector2(0.14512472, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/StaticBody2D" unique_id=2009527238]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xbcw7")
+
+[node name="CakePickup" parent="." unique_id=84181667 instance=ExtResource("3_bf6r1")]
+position = Vector2(228, 257)
+
+[node name="CookiePickup" parent="." unique_id=2138798613 instance=ExtResource("4_6yucw")]
+position = Vector2(182, 253)
+
+[node name="DrinkPickup" parent="." unique_id=1046752657 instance=ExtResource("5_g4n5d")]
+position = Vector2(151, 255)

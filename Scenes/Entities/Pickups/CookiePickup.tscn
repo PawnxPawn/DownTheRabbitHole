@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://by1dqji72f12n"]
+
+[ext_resource type="PackedScene" uid="uid://ddgw11yi7bl4h" path="res://Scenes/Entities/Pickups/Pickup.tscn" id="1_0h22d"]
+
+[node name="CookiePickup" unique_id=84181667 instance=ExtResource("1_0h22d")]
+modulate = Color(0.5025347, 0.22985083, 0.15480164, 1)
+item_type = 2

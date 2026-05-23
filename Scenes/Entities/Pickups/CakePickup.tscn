@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c8cup0vyn2sl2"]
+
+[ext_resource type="PackedScene" uid="uid://ddgw11yi7bl4h" path="res://Scenes/Entities/Pickups/Pickup.tscn" id="1_h804r"]
+
+[node name="CakePickup" unique_id=84181667 instance=ExtResource("1_h804r")]
+
+[node name="Pickup" parent="." index="0" unique_id=1431168252]
+modulate = Color(1, 0, 1, 1)
