@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dpr8yeruxbl0h"]
+
+[ext_resource type="Script" uid="uid://bselu6xgw1mpl" path="res://Scenes/MainMenu/MainMenu.gd" id="1_c7oo3"]
+
+[node name="MainMenu" type="Control" unique_id=2105026973]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c7oo3")
+
+[node name="Title" type="VBoxContainer" parent="." unique_id=381505929]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+offset_right = 167.0
+offset_bottom = 72.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="Title" unique_id=1969517463]
+layout_mode = 2
+text = "Connected by 
+the Hip"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Title" unique_id=175145172]
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="Title" unique_id=1887660270]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NewGame" type="Button" parent="Title/Buttons" unique_id=1689642042]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "New Game"
+
+[node name="Options" type="Button" parent="Title/Buttons" unique_id=1971773040]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="Title/Buttons" unique_id=1898941872]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Exit
+"

@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dw0hrwf0gw2hw"]
+
+[ext_resource type="Script" uid="uid://cssieua3det8g" path="res://UI/Settings/Settings.gd" id="1_mvx1u"]
+
+[node name="Settings" type="Control" unique_id=529336582]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mvx1u")
+metadata/_edit_horizontal_guides_ = [113.0, 970.0]
+metadata/_edit_vertical_guides_ = [460.0, 1506.0]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1163934571]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.32156864)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1843359864]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=553039118]
+layout_mode = 2
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=1359388459]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer" unique_id=1275867201]
+layout_mode = 2
+text = "Master Volume:"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer/GridContainer" unique_id=378478776]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/GridContainer" unique_id=645377534]
+layout_mode = 2
+text = "SFX Volume:"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="VBoxContainer/GridContainer" unique_id=1973303604]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/GridContainer" unique_id=1544597881]
+layout_mode = 2
+text = "Music Volume:"
+
+[node name="MusicVolume" type="HSlider" parent="VBoxContainer/GridContainer" unique_id=1328325709]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1399837648]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="SaveAndExit" type="HBoxContainer" parent="VBoxContainer2" unique_id=6215215]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="VBoxContainer2/SaveAndExit" unique_id=726213662]
+layout_mode = 2
+text = "Exit"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/SaveAndExit" unique_id=1767380838]
+layout_mode = 2
+theme_override_constants/margin_left = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=823082497]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5

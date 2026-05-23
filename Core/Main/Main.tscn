@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://busb4kstb2ha8"]
+
+[ext_resource type="Script" uid="uid://dgxfhm3v0upct" path="res://Core/Main/Main.gd" id="1_ycf5l"]
+
+[node name="Main" type="Node" unique_id=1777033880]
+script = ExtResource("1_ycf5l")
+
+[node name="SceneManager" type="Node" parent="." unique_id=1072705769]
+
+[node name="UIManager" type="CanvasLayer" parent="." unique_id=656216226]

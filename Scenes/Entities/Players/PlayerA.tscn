@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cttr31v204b41"]
+
+[ext_resource type="Script" uid="uid://qusq2tb6b6b0" path="res://Scenes/Entities/Players/PlayerA.gd" id="1_t5ehj"]
+[ext_resource type="Script" uid="uid://f8jmr8kubvtq" path="res://Core/Utilities/ComponentHandler.gd" id="3_7ovtj"]
+[ext_resource type="Script" uid="uid://l0vqpkec40fk" path="res://Core/Components/InputComponent/PlayerInput.gd" id="4_6c33f"]
+[ext_resource type="Script" uid="uid://c2yuguogg3wvo" path="res://Core/FSM/StateMachine.gd" id="4_t5ehj"]
+[ext_resource type="Script" uid="uid://c7ty7fal5h25k" path="res://Core/Components/GravityComponent.gd" id="5_54fsa"]
+[ext_resource type="Script" uid="uid://dlg3g6fyga4wa" path="res://Scenes/Entities/Players/States/PlayerIdle.gd" id="5_t5ehj"]
+[ext_resource type="Script" uid="uid://bge753gyqgnot" path="res://Scenes/Entities/Players/States/PlayerMove.gd" id="6_tp3th"]
+[ext_resource type="Script" uid="uid://bbes4yv7s8fo6" path="res://Core/Components/MoveComponent.gd" id="6_vr66c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6c33f"]
+radius = 7.0
+height = 32.0
+
+[node name="PlayerA" type="RigidBody2D" unique_id=725676861]
+collision_layer = 2
+collision_mask = 3
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_t5ehj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1761057293]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_6c33f")
+
+[node name="ComponentHandler" type="Node" parent="." unique_id=984005704]
+unique_name_in_owner = true
+script = ExtResource("3_7ovtj")
+default_components = Array[Script]([ExtResource("4_6c33f"), ExtResource("5_54fsa"), ExtResource("6_vr66c")])
+metadata/_custom_type_script = "uid://f8jmr8kubvtq"
+
+[node name="StateMachine" type="Node" parent="." unique_id=1781170429]
+unique_name_in_owner = true
+script = ExtResource("4_t5ehj")
+state_scripts = Array[GDScript]([ExtResource("5_t5ehj"), ExtResource("6_tp3th")])
+metadata/_custom_type_script = "uid://c2yuguogg3wvo"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=476638083]
