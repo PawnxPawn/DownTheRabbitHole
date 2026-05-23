@@ -4,8 +4,8 @@ signal jumped
 signal grounded
 signal left_floor
 
-var gravity_ascent: float = 200.0
-var gravity_descent: float = 1600.0
+var gravity_ascent: float = 15.0
+var gravity_descent: float = 200.0
 var is_on_floor: bool = false
 var _was_on_floor: bool = false
 
@@ -30,12 +30,13 @@ func _init(p_owner: Node) -> void:
 		body.gravity_scale = 0.0
 		body.can_sleep = false
 
-func physics_process(delta: float) -> void:
+func physics_process(_delta: float) -> void:
 	if not _owner is CharacterBody2D: return
 	var body := _owner as CharacterBody2D
 	if body.is_on_floor(): return
 	var gravity: float = gravity_ascent if body.velocity.y < 0.0 else gravity_descent
-	body.velocity.y += gravity * delta
+	body.velocity.y += gravity
+	body.move_and_slide()
 
 func integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	is_on_floor_check(state)

@@ -18,6 +18,7 @@ func _on_moved(direction:float) -> void:
 	
 
 func _on_jump() -> void:
+	print_debug("Transition to jump state")
 	transition_to(&"Jump") # Transition to jump state
 
 
@@ -31,6 +32,7 @@ func _connect_components() -> void:
 		_handler.set_active(InputSource, true)
 		input.moved.connect(_on_moved)
 		input.jump_pressed.connect(_on_jump) # Connect jump signal to _on_jump method
+		
 	
 	if gravity:
 		_handler.set_active(GravityComponent, true)
@@ -41,6 +43,7 @@ func _disconnect_components() -> void:
 	if input:
 		_handler.set_active(InputSource, false)
 		input.moved.disconnect(_on_moved)
+		input.jump_pressed.disconnect(_on_jump)
 	
 	var gravity:GravityComponent = _handler.get_component(GravityComponent)
 	if gravity:

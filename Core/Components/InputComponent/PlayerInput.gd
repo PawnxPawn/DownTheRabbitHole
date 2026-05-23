@@ -16,6 +16,7 @@ func _process_input(_delta:float) -> void:
 	if Input.is_action_just_pressed("Grab"):
 		grab_pressed.emit()
 	if Input.is_action_just_pressed("Jump"):
+		print_debug("Jump input detected")
 		jump_pressed.emit()
 
 

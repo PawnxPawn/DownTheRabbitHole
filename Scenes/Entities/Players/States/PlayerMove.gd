@@ -29,6 +29,7 @@ func _connect_components() -> void:
 		_handler.set_active(InputSource, true)
 	
 	if movement:
+		print_debug("Set move component active")
 		_handler.set_active(MoveComponent, true)
 		input.moved.connect(movement._on_moved)
 		movement.velocity_zeroed.connect(_not_moving)
