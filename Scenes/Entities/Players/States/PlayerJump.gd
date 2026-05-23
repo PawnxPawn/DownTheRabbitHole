@@ -8,6 +8,8 @@ func enter() -> void:
 	var body := _owner as Player
 	if body:
 		body.animation.play(&"JumpUp")
+	var jump: JumpComponent = _handler.get_component(JumpComponent)
+	jump._on_jump()
 
 
 func process_physics(_delta: float) -> void:
@@ -31,6 +33,11 @@ func _not_jumping() -> void:
 	#transition_to(&"Falling")
 
 
+func _jump_released() -> void:
+	var body := _owner as Player
+	if body:
+		body.velocity.y = 0.0
+
 #Helpers
 func _connect_components() -> void:
 	var input: InputSource = _handler.get_component(InputSource)
@@ -43,6 +50,7 @@ func _connect_components() -> void:
 	
 	if input:
 		_handler.set_active(InputSource, true)
+		input.jump_released.connect(_jump_released)
 	
 	if movement:
 		_handler.set_active(MoveComponent, true)
@@ -65,6 +73,7 @@ func _disconnect_components() -> void:
 	var input:InputSource = _handler.get_component(InputSource)
 	if input:
 		_handler.set_active(InputSource, false)
+		input.jump_released.disconnect(_jump_released)
 	
 	var movement: MoveComponent = _handler.get_component(MoveComponent)
 	if movement:

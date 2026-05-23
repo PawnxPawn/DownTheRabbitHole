@@ -19,6 +19,10 @@ func _not_moving() -> void:
 	transition_to(&"Idle")
 
 
+func _jump_pressed() -> void:
+	transition_to(&"Jump")
+
+
 #Helpers
 func _connect_components() -> void:
 	var input:InputSource = _handler.get_component(InputSource)
@@ -31,6 +35,7 @@ func _connect_components() -> void:
 	
 	if input:
 		_handler.set_active(InputSource, true)
+		input.jump_pressed.connect(_jump_pressed)
 	
 	#if jump:
 		#_handler.set_active(JumpComponent, true)
@@ -47,6 +52,7 @@ func _disconnect_components() -> void:
 	var input:InputSource = _handler.get_component(InputSource)
 	if input:
 		_handler.set_active(InputSource, false)
+		input.jump_pressed.disconnect(_jump_pressed)
 	
 	var movement:MoveComponent = _handler.get_component(MoveComponent)
 	if movement:
