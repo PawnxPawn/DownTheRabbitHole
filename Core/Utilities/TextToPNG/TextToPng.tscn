@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cjluut363x3eq"]
+
+[ext_resource type="Script" uid="uid://b4yabj4wqx33v" path="res://Core/Utilities/TextToPNG/text_to_png.gd" id="1_j7fqr"]
+
+[node name="TextToPNG" type="Control" unique_id=846705167]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j7fqr")
+text = ""
+font_size = 98
+alignment = 1

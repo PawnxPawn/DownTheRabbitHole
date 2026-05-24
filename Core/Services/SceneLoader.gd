@@ -6,7 +6,8 @@ enum Scenes {
 }
 
 const _PRELOADED_SCENES = {
-	Scenes.MAIN_MENU: preload("uid://dpr8yeruxbl0h")
+	Scenes.MAIN_MENU: preload("uid://dpr8yeruxbl0h"),
+	Scenes.LEVEL_ONE: preload("uid://0x1cq8hkktby")
 }
 
 

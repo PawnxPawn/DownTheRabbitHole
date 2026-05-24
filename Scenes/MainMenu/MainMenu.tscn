@@ -1,6 +1,59 @@
 [gd_scene format=3 uid="uid://dpr8yeruxbl0h"]
 
 [ext_resource type="Script" uid="uid://bselu6xgw1mpl" path="res://Scenes/MainMenu/MainMenu.gd" id="1_c7oo3"]
+[ext_resource type="Script" uid="uid://b4yabj4wqx33v" path="res://Core/Utilities/TextToPNG/text_to_png.gd" id="2_c7oo3"]
+[ext_resource type="Texture2D" uid="uid://byko8hkpofp30" path="res://Assets/MainMenu/Layer 2.png" id="3_kpx3y"]
+[ext_resource type="Texture2D" uid="uid://ctacwjvtj2h4j" path="res://Assets/MainMenu/Layer 1.png" id="3_sg7ab"]
+[ext_resource type="Script" uid="uid://d0mmq2inlb2s1" path="res://Core/Utilities/TextToPNG/TextureSpritesFrames/texture_sprite_frames.gd" id="4_ua038"]
+[ext_resource type="Texture2D" uid="uid://bsy0xlkhmuhtx" path="res://Assets/MainMenu/Button.png" id="6_vapy7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpx3y"]
+atlas = ExtResource("3_sg7ab")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vapy7"]
+atlas = ExtResource("3_kpx3y")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qovt"]
+atlas = ExtResource("3_kpx3y")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hjx5"]
+atlas = ExtResource("3_kpx3y")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv0xt"]
+atlas = ExtResource("3_kpx3y")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sng02"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qovt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hjx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv0xt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua038"]
+atlas = ExtResource("6_vapy7")
+region = Rect2(4443, 824, 704, 120)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vapy7"]
+load_path = "res://.godot/imported/Button.png-c72c276a660b9f15ec18202020812642.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sng02"]
+atlas = SubResource("CompressedTexture2D_vapy7")
+region = Rect2(603, 824, 704, 120)
 
 [node name="MainMenu" type="Control" unique_id=2105026973]
 layout_mode = 3
@@ -11,43 +64,109 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c7oo3")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1726284866]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = SubResource("AtlasTexture_kpx3y")
+expand_mode = 1
+
+[node name="TextureSpriteFrames" type="TextureRect" parent="." unique_id=120293460]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = SubResource("AtlasTexture_vapy7")
+expand_mode = 1
+script = ExtResource("4_ua038")
+sprite_frames = SubResource("SpriteFrames_sng02")
+metadata/_custom_type_script = "uid://d0mmq2inlb2s1"
+
+[node name="TextToPng" type="Control" parent="." unique_id=1267212868]
+z_index = 1
+anchors_preset = 0
+offset_left = 95.0
+offset_top = 68.0
+offset_right = 267.0
+offset_bottom = 68.0
+script = ExtResource("2_c7oo3")
+text = "Down 
+The Rabbit Hole"
+font_size = 283
+alignment = 1
+metadata/_custom_type_script = "uid://b4yabj4wqx33v"
+
+[node name="TextToPng2" type="Control" parent="TextToPng" unique_id=1950639905]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+anchors_preset = 0
+offset_left = 5.0
+offset_top = -2.0
+offset_right = 177.0
+offset_bottom = -2.0
+script = ExtResource("2_c7oo3")
+text = "Down 
+The Rabbit Hole"
+font_size = 280
+alignment = 1
+metadata/_custom_type_script = "uid://b4yabj4wqx33v"
+
 [node name="Title" type="VBoxContainer" parent="." unique_id=381505929]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -90.0
-offset_right = 167.0
-offset_bottom = 72.0
+offset_left = 137.0
+offset_top = -96.0
+offset_right = 842.0
+offset_bottom = 66.0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
-
-[node name="Label" type="Label" parent="Title" unique_id=1969517463]
-layout_mode = 2
-text = "Down The Rabbit Hole"
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="Title" unique_id=175145172]
-layout_mode = 2
 
 [node name="Buttons" type="VBoxContainer" parent="Title" unique_id=1887660270]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="NewGame" type="Button" parent="Title/Buttons" unique_id=1689642042]
+[node name="NewGame" type="TextureButton" parent="Title/Buttons" unique_id=287868163]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "New Game"
+texture_normal = SubResource("AtlasTexture_ua038")
+texture_pressed = SubResource("AtlasTexture_sng02")
+texture_hover = SubResource("AtlasTexture_ua038")
+
+[node name="TextToPng" type="Control" parent="Title/Buttons/NewGame" unique_id=456582998]
+z_index = 1
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 26.0
+offset_right = 190.0
+offset_bottom = 66.0
+mouse_filter = 2
+script = ExtResource("2_c7oo3")
+text = "Start Game"
+font_size = 400
+metadata/_custom_type_script = "uid://b4yabj4wqx33v"
+
+[node name="TextToPng2" type="Control" parent="Title/Buttons/NewGame/TextToPng" unique_id=1595702288]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+anchors_preset = 0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 42.0
+offset_bottom = 38.0
+script = ExtResource("2_c7oo3")
+text = "Start Game"
+font_size = 405
+metadata/_custom_type_script = "uid://b4yabj4wqx33v"
 
 [node name="Options" type="Button" parent="Title/Buttons" unique_id=1971773040]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 4
 text = "Options
 "
 
 [node name="Exit" type="Button" parent="Title/Buttons" unique_id=1898941872]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 4
 text = "Exit
 "

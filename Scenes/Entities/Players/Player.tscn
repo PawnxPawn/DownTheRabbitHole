@@ -171,8 +171,11 @@ state_scripts = Array[GDScript]([ExtResource("7_cbjid"), ExtResource("8_sod1g"),
 metadata/_custom_type_script = "uid://c2yuguogg3wvo"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=476638083]
+position = Vector2(0, -114)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=44745863]
+position = Vector2(1, -11)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_87rjk")
 animation = &"Fall"
 
@@ -183,6 +186,7 @@ script = ExtResource("14_cbjid")
 metadata/_custom_type_script = "uid://b72iblka7apip"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=25952689]
+visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_sod1g")
 
@@ -193,5 +197,6 @@ script = ExtResource("15_sod1g")
 metadata/_custom_type_script = "uid://cnek7tq1gystt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent" unique_id=2073446846]
+visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_6c33f")

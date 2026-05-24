@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ld80i0atw8wq"
-path="res://.godot/imported/Orange_Puff.png-86ecccd193a2047d5a87fd9abaf74466.ctex"
+uid="uid://byko8hkpofp30"
+path="res://.godot/imported/Layer 2.png-e04d986539b5cf2a745924f9b4c79a77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Flowers/Orange_Puff.png"
-dest_files=["res://.godot/imported/Orange_Puff.png-86ecccd193a2047d5a87fd9abaf74466.ctex"]
+source_file="res://Assets/MainMenu/Layer 2.png"
+dest_files=["res://.godot/imported/Layer 2.png-e04d986539b5cf2a745924f9b4c79a77.ctex"]
 
 [params]
 

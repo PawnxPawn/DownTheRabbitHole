@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy2qf27x4lrbb"
-path="res://.godot/imported/Orange_Flower.png-b006ce512cc83a645444294b0e94d563.ctex"
+uid="uid://ld80i0atw8wq"
+path="res://.godot/imported/Orange_Puff.png-cd1db69c5f681f33f67f5c1837a5dd95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Flowers/Orange_Flower.png"
-dest_files=["res://.godot/imported/Orange_Flower.png-b006ce512cc83a645444294b0e94d563.ctex"]
+source_file="res://Assets/Enemies/Flowers/Orange_Puff.png"
+dest_files=["res://.godot/imported/Orange_Puff.png-cd1db69c5f681f33f67f5c1837a5dd95.ctex"]
 
 [params]
 

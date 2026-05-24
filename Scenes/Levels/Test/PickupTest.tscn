@@ -1,32 +1,56 @@
 [gd_scene format=3 uid="uid://0x1cq8hkktby"]
 
 [ext_resource type="Script" uid="uid://fmxvqgo6vwjq" path="res://Core/Spawners/Projectile/ProjectileSpawner.gd" id="1_g4n5d"]
-[ext_resource type="Texture2D" uid="uid://dmo6xoqnsmpca" path="res://icon.svg" id="1_ws0pt"]
+[ext_resource type="PackedScene" uid="uid://bii0luey1lng7" path="res://Assets/Background/BackgroundParalax.tscn" id="1_n4lpy"]
 [ext_resource type="PackedScene" uid="uid://cttr31v204b41" path="res://Scenes/Entities/Players/Player.tscn" id="1_xbcw7"]
 [ext_resource type="PackedScene" uid="uid://c8cup0vyn2sl2" path="res://Scenes/Entities/Pickups/CakePickup.tscn" id="3_bf6r1"]
 [ext_resource type="PackedScene" uid="uid://by1dqji72f12n" path="res://Scenes/Entities/Pickups/CookiePickup.tscn" id="4_6yucw"]
+[ext_resource type="Texture2D" uid="uid://8rpmdeae1dpr" path="res://Assets/Background/Red_tree.png" id="4_f8hys"]
 [ext_resource type="PackedScene" uid="uid://bvftrn7boelik" path="res://Scenes/Entities/Pickups/DrinkPickup.tscn" id="5_g4n5d"]
 [ext_resource type="PackedScene" uid="uid://xk3jffsabrlx" path="res://Scenes/Entities/Projectiles/Projectile.tscn" id="6_6yucw"]
+[ext_resource type="Texture2D" uid="uid://cf75cj4aij4u2" path="res://Assets/Background/Platform_.png" id="8_n4lpy"]
+[ext_resource type="Texture2D" uid="uid://bhtw3wfb2e04o" path="res://Assets/Background/Green_tree.png" id="9_pf7cq"]
+[ext_resource type="PackedScene" uid="uid://d2jvbenqnx4h" path="res://Scenes/Entities/Enemies/Enemy.tscn" id="11_pqyi4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbcw7"]
-size = Vector2(883, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf7cq"]
+size = Vector2(7680, 80)
 
 [node name="PickupTest" type="Node2D" unique_id=529405666]
 
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1542023662]
+scroll_scale = Vector2(1.05, 0)
+scroll_offset = Vector2(5, -1)
+repeat_size = Vector2(1280, 0)
+repeat_times = 3
+
+[node name="BackgroundParalax" parent="Parallax2D" unique_id=1629463082 instance=ExtResource("1_n4lpy")]
+
+[node name="Ground" type="TextureRect" parent="." unique_id=108507869]
+offset_left = -13.0
+offset_top = -243.0
+offset_right = 7667.0
+offset_bottom = 397.0
+texture = ExtResource("8_n4lpy")
+expand_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground" unique_id=23690277]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D" unique_id=1030205921]
+position = Vector2(3847, 572)
+shape = SubResource("RectangleShape2D_pf7cq")
+
+[node name="GreenTree2" type="Sprite2D" parent="." unique_id=2017590576]
+position = Vector2(896.00006, 181)
+scale = Vector2(3, 3)
+texture = ExtResource("9_pf7cq")
+
+[node name="RedTree3" type="Sprite2D" parent="." unique_id=1292680355]
+position = Vector2(1253, 181)
+scale = Vector2(3, 3)
+texture = ExtResource("4_f8hys")
+
 [node name="Player" parent="." unique_id=877999862 instance=ExtResource("1_xbcw7")]
 position = Vector2(307, 256)
-
-[node name="Icon" type="Sprite2D" parent="." unique_id=256806620]
-position = Vector2(301, 345)
-scale = Vector2(6.890625, 1)
-texture = ExtResource("1_ws0pt")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Icon" unique_id=2031633744]
-scale = Vector2(0.14512472, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/StaticBody2D" unique_id=2009527238]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_xbcw7")
 
 [node name="CakePickup" parent="." unique_id=84181667 instance=ExtResource("3_bf6r1")]
 position = Vector2(228, 257)
@@ -53,3 +77,17 @@ projectile = ExtResource("6_6yucw")
 should_repeat = true
 repeat_time = 2.0
 metadata/_custom_type_script = "uid://fmxvqgo6vwjq"
+
+[node name="GreenTree" type="Sprite2D" parent="." unique_id=52976833]
+position = Vector2(648, 233)
+scale = Vector2(2, 2)
+texture = ExtResource("9_pf7cq")
+
+[node name="RedTree2" type="Sprite2D" parent="." unique_id=1080295825]
+position = Vector2(405, 192)
+scale = Vector2(4, 4)
+texture = ExtResource("4_f8hys")
+
+[node name="Enemy" parent="." unique_id=70780440 instance=ExtResource("11_pqyi4")]
+position = Vector2(122, 271)
+enemy_type = 2

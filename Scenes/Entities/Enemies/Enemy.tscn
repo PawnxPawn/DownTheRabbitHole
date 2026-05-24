@@ -1,0 +1,302 @@
+[gd_scene format=3 uid="uid://d2jvbenqnx4h"]
+
+[ext_resource type="Script" uid="uid://dm3iiu1k8p0nb" path="res://Scenes/Entities/Enemies/Enemy.gd" id="1_ucu44"]
+[ext_resource type="Texture2D" uid="uid://1ogrisoxujkq" path="res://Assets/Enemies/Flowers/Blue_Flower.png" id="2_mf32j"]
+[ext_resource type="Texture2D" uid="uid://cy2qf27x4lrbb" path="res://Assets/Enemies/Flowers/Orange_Flower.png" id="3_6lb2u"]
+[ext_resource type="Texture2D" uid="uid://cyv1tmyk2nnd3" path="res://Assets/Enemies/Cards/Card_Club.png" id="3_pg5tb"]
+[ext_resource type="Texture2D" uid="uid://bkxblg65ofgv7" path="res://Assets/Enemies/Cards/Card_Diamond.png" id="4_ao1lv"]
+[ext_resource type="Texture2D" uid="uid://ld80i0atw8wq" path="res://Assets/Enemies/Flowers/Orange_Puff.png" id="4_d4mgi"]
+[ext_resource type="Texture2D" uid="uid://bclnkmvm3io6f" path="res://Assets/Enemies/Cards/Card_Heart.png" id="5_5ds34"]
+[ext_resource type="Texture2D" uid="uid://dxrloxlf604tv" path="res://Assets/Enemies/Flowers/Pink_Flower.png" id="5_dqj3t"]
+[ext_resource type="Texture2D" uid="uid://ccqp2l1sbdsox" path="res://Assets/Enemies/Cards/Card_Spade.png" id="6_0tutw"]
+[ext_resource type="Texture2D" uid="uid://c06tcp1fjdpq8" path="res://Assets/Enemies/Flowers/Pink_Puff.png" id="6_5u5yk"]
+[ext_resource type="Texture2D" uid="uid://cm7eg0svhbndd" path="res://Assets/Enemies/Flowers/Purple_Flower.png" id="7_85riu"]
+[ext_resource type="Texture2D" uid="uid://btypcsuccrw8u" path="res://Assets/Enemies/Flowers/Purple_Puff.png" id="8_d5pxk"]
+[ext_resource type="Script" uid="uid://f8jmr8kubvtq" path="res://Core/Utilities/ComponentHandler.gd" id="9_sabmh"]
+[ext_resource type="Script" uid="uid://bbes4yv7s8fo6" path="res://Core/Components/MoveComponent.gd" id="10_sf1f3"]
+[ext_resource type="Script" uid="uid://c7ty7fal5h25k" path="res://Core/Components/GravityComponent.gd" id="11_6lb2u"]
+[ext_resource type="Script" uid="uid://c0fce2nxp5hfh" path="res://Core/Components/Hutbox/HurtBox.gd" id="11_inbuc"]
+[ext_resource type="Script" uid="uid://fmxvqgo6vwjq" path="res://Core/Spawners/Projectile/ProjectileSpawner.gd" id="12_1cf30"]
+[ext_resource type="PackedScene" uid="uid://xk3jffsabrlx" path="res://Scenes/Entities/Projectiles/Projectile.tscn" id="13_mf32j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pg5tb"]
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10sp8"]
+atlas = ExtResource("2_mf32j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucxc4"]
+atlas = ExtResource("2_mf32j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8vrh"]
+atlas = ExtResource("3_pg5tb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vha6"]
+atlas = ExtResource("3_pg5tb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnkh4"]
+atlas = ExtResource("3_pg5tb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvkxp"]
+atlas = ExtResource("4_ao1lv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58kml"]
+atlas = ExtResource("4_ao1lv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j28gb"]
+atlas = ExtResource("4_ao1lv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e43mk"]
+atlas = ExtResource("5_5ds34")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0udh3"]
+atlas = ExtResource("5_5ds34")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jwrh"]
+atlas = ExtResource("5_5ds34")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1pye"]
+atlas = ExtResource("6_0tutw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7as0"]
+atlas = ExtResource("6_0tutw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swwh3"]
+atlas = ExtResource("6_0tutw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao1lv"]
+atlas = ExtResource("3_6lb2u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ds34"]
+atlas = ExtResource("3_6lb2u")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tutw"]
+atlas = ExtResource("4_d4mgi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp0hf"]
+atlas = ExtResource("4_d4mgi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj6af"]
+atlas = ExtResource("5_dqj3t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y15lb"]
+atlas = ExtResource("5_dqj3t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgdin"]
+atlas = ExtResource("6_5u5yk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrplf"]
+atlas = ExtResource("6_5u5yk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok3jk"]
+atlas = ExtResource("7_85riu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p805o"]
+atlas = ExtResource("7_85riu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhr54"]
+atlas = ExtResource("8_d5pxk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijujg"]
+atlas = ExtResource("8_d5pxk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8vrh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10sp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucxc4")
+}],
+"loop": true,
+"name": &"BlueFlower_Patrol",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8vrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vha6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnkh4")
+}],
+"loop": true,
+"name": &"CardClub_Patrol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvkxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58kml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j28gb")
+}],
+"loop": true,
+"name": &"CardDiamond_Patrol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e43mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0udh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jwrh")
+}],
+"loop": true,
+"name": &"CardHeart_Patrol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1pye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7as0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swwh3")
+}],
+"loop": true,
+"name": &"CardSpade_Patrol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao1lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ds34")
+}],
+"loop": true,
+"name": &"OrangeFlower_Patrol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tutw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp0hf")
+}],
+"loop": true,
+"name": &"OrangePuff_Patrol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj6af")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y15lb")
+}],
+"loop": true,
+"name": &"PinkFlower_Patrol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgdin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrplf")
+}],
+"loop": true,
+"name": &"PinkPuff_Patrol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok3jk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p805o")
+}],
+"loop": true,
+"name": &"PurpleFlower_Patrol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhr54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijujg")
+}],
+"loop": true,
+"name": &"PurplePuff_Patrol",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8vha6"]
+radius = 7.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=70780440]
+collision_layer = 4
+script = ExtResource("1_ucu44")
+enemy_type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=250093503]
+shape = SubResource("CapsuleShape2D_pg5tb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=172930752]
+sprite_frames = SubResource("SpriteFrames_k8vrh")
+animation = &"BlueFlower_Patrol"
+
+[node name="ComponentHandler" type="Node" parent="." unique_id=1024896208]
+unique_name_in_owner = true
+script = ExtResource("9_sabmh")
+default_components = Array[Script]([ExtResource("10_sf1f3"), ExtResource("11_6lb2u")])
+metadata/_custom_type_script = "uid://f8jmr8kubvtq"
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=676238659]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("11_inbuc")
+metadata/_custom_type_script = "uid://c0fce2nxp5hfh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1089677892]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_8vha6")
+
+[node name="ProjectileSpawner" type="Marker2D" parent="." unique_id=1804491329]
+position = Vector2(10, 0)
+script = ExtResource("12_1cf30")
+projectile = ExtResource("13_mf32j")
+metadata/_custom_type_script = "uid://fmxvqgo6vwjq"
+
+[node name="DirectionalTimer" type="Timer" parent="." unique_id=505926831]

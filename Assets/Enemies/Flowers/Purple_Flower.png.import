@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c06tcp1fjdpq8"
-path="res://.godot/imported/Pink_Puff.png-565e038cfbd6832c2a8756a33925937f.ctex"
+uid="uid://cm7eg0svhbndd"
+path="res://.godot/imported/Purple_Flower.png-fd436d63a22d4b3ae3d9535b29b70fb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Flowers/Pink_Puff.png"
-dest_files=["res://.godot/imported/Pink_Puff.png-565e038cfbd6832c2a8756a33925937f.ctex"]
+source_file="res://Assets/Enemies/Flowers/Purple_Flower.png"
+dest_files=["res://.godot/imported/Purple_Flower.png-fd436d63a22d4b3ae3d9535b29b70fb7.ctex"]
 
 [params]
 

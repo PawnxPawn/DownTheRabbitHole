@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btypcsuccrw8u"
-path="res://.godot/imported/Purple_Puff.png-384a8e7e72e549738129cc51a3945438.ctex"
+uid="uid://bhtw3wfb2e04o"
+path="res://.godot/imported/Green_tree.png-96853621ffcffbd363499a3fa88250fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Flowers/Purple_Puff.png"
-dest_files=["res://.godot/imported/Purple_Puff.png-384a8e7e72e549738129cc51a3945438.ctex"]
+source_file="res://Assets/Background/Green_tree.png"
+dest_files=["res://.godot/imported/Green_tree.png-96853621ffcffbd363499a3fa88250fa.ctex"]
 
 [params]
 

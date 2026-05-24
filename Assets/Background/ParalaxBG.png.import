@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm7eg0svhbndd"
-path="res://.godot/imported/Purple_Flower.png-f4200eb5303fe7f3bdfb128cde67f092.ctex"
+uid="uid://da8repfm16x5l"
+path="res://.godot/imported/ParalaxBG.png-e22592ec69f0830def0745b0539b24e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Flowers/Purple_Flower.png"
-dest_files=["res://.godot/imported/Purple_Flower.png-f4200eb5303fe7f3bdfb128cde67f092.ctex"]
+source_file="res://Assets/Background/ParalaxBG.png"
+dest_files=["res://.godot/imported/ParalaxBG.png-e22592ec69f0830def0745b0539b24e6.ctex"]
 
 [params]
 
