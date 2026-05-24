@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://2dtvdwop5gbe"
+path="res://.godot/imported/level_three_end.dialogue-497e48ab4de74f5ea41e3b5979ae2010.tres"
+
+[deps]
+
+source_file="res://Core/Dialogue/DialogueScripts/level_three_end.dialogue"
+dest_files=["res://.godot/imported/level_three_end.dialogue-497e48ab4de74f5ea41e3b5979ae2010.tres"]
+
+[params]
+
+defaults=true

@@ -28,13 +28,20 @@ var damage_loss_multiplyier: float = 1.0
 func _ready() -> void:
 	_set_sm()
 	_connect_signals()
-	health_progress_bar.value = 100.0
-	
+	health_progress_bar.value = 60.0
+
 	DialogueUtility.register_participant("player", self)
+	
+	call_deferred("_deferred_start_dialog")
 	#DialogueUtility.start_dialogue(
-		#DialogueUtility.COMMON_DIALOGUE_PATHS["WELCOME"],
-		#self
+		#_get_start_dialogue_for_current_level()
 	#)
+
+func _deferred_start_dialog():
+	#DialogueUtility.register_callback(_transition_to_next_level)
+	DialogueUtility.start_dialogue(
+		_get_start_dialogue_for_current_level()
+	)
 
 
 func _set_sm() -> void:
@@ -129,5 +136,47 @@ func _powerup_timeout(powerup: StringName) -> void:
 			return
 
 
-func win(dialogue: ) -> void:
-	pass
+func win() -> void:
+	print_debug("Player.win")
+	DialogueUtility.register_participant("player", self)
+	DialogueUtility.register_callback(_transition_to_next_level())
+	DialogueUtility.start_dialogue(_get_end_dialogue_for_current_level())
+
+
+func _transition_to_next_level():
+	print_debug("transition called")
+	#var current_scene = self.get_tree().current_scene.name
+	var current_scene = Services.scene_loader.current_scene
+	print_debug("Current scene", Services.scene_loader.Scenes.keys()[current_scene])
+	match current_scene:
+		Services.scene_loader.Scenes.LEVEL_ONE:
+			print_debug("Load level 2")
+			Services.scene_loader.load_scene(Services.scene_loader.Scenes.LEVEL_TWO)
+		Services.scene_loader.Scenes.LEVEL_TWO:
+			Services.scene_loader.load_scene(Services.scene_loader.Scenes.LEVEL_THREE)
+
+
+func _get_start_dialogue_for_current_level():
+	var current_scene = Services.scene_loader.current_scene
+	print_debug("Current scene: ", current_scene)
+	
+	match current_scene:
+		Services.scene_loader.Scenes.LEVEL_ONE:
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_ONE_BEGIN"]
+		Services.scene_loader.Scenes.LEVEL_TWO:
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_TWO_BEGIN"]
+		Services.scene_loader.Scenes.LEVEL_TWO:
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_THREE_BEGIN"]
+	return ""
+
+func _get_end_dialogue_for_current_level():
+	var current_scene = self.get_tree().current_scene.name
+	print_debug("Current scene:", current_scene)
+	
+	match current_scene:
+		"LevelOne":
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_ONE_END"]
+		"LevelTwo":
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_TWO_END"]
+		"LevelThree":
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_THREE_END"]
