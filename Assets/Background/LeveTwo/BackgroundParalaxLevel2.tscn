@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cb7dn6t625x6m"]
+
+[ext_resource type="PackedScene" uid="uid://bii0luey1lng7" path="res://Assets/Background/BackgroundParalax.tscn" id="1_c7mci"]
+[ext_resource type="Texture2D" uid="uid://dwx748iemlv66" path="res://Assets/Background/LeveTwo/Platform_1.png" id="2_b56xy"]
+[ext_resource type="Texture2D" uid="uid://ilhpx2y6giet" path="res://Assets/Background/LeveTwo/Platform_2.png" id="3_ynetf"]
+
+[node name="BackgroundParalaxLevel2" unique_id=1629463082 instance=ExtResource("1_c7mci")]
+texture = ExtResource("2_b56xy")
+
+[node name="TextureRect" parent="." index="0" unique_id=1746857206]
+texture = ExtResource("3_ynetf")

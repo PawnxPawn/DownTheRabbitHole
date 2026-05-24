@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://ct4kd4qistnf"]
+
+[ext_resource type="Texture2D" uid="uid://dyurc0mfne0y7" path="res://Assets/Background/LeveTwo/Rosebush_1.png" id="1_pt7ho"]
+[ext_resource type="Texture2D" uid="uid://dolic4lsfi86p" path="res://Assets/Background/LeveTwo/Rosebush_2.png" id="2_hspek"]
+[ext_resource type="Script" uid="uid://b2lo14f00253f" path="res://Scenes/Levels/RoseBush.gd" id="3_hspek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjtsk"]
+atlas = ExtResource("1_pt7ho")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xbvc"]
+atlas = ExtResource("1_pt7ho")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrend"]
+atlas = ExtResource("1_pt7ho")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubdd0"]
+atlas = ExtResource("1_pt7ho")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx833"]
+atlas = ExtResource("1_pt7ho")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nfow"]
+atlas = ExtResource("1_pt7ho")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2016l"]
+atlas = ExtResource("1_pt7ho")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhmfn"]
+atlas = ExtResource("1_pt7ho")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cwpp"]
+atlas = ExtResource("1_pt7ho")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snl0i"]
+atlas = ExtResource("1_pt7ho")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a6yk"]
+atlas = ExtResource("2_hspek")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkdkp"]
+atlas = ExtResource("2_hspek")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag8h5"]
+atlas = ExtResource("2_hspek")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svhs5"]
+atlas = ExtResource("2_hspek")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx85t"]
+atlas = ExtResource("2_hspek")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux410"]
+atlas = ExtResource("2_hspek")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p0vhh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjtsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xbvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrend")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubdd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx833")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nfow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2016l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhmfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cwpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snl0i")
+}],
+"loop": true,
+"name": &"RosesOne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a6yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkdkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag8h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svhs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx85t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux410")
+}],
+"loop": true,
+"name": &"RosesTwo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjtsk"]
+size = Vector2(72.5, 69)
+
+[node name="RoseBush" type="AnimatedSprite2D" unique_id=865096236]
+sprite_frames = SubResource("SpriteFrames_p0vhh")
+animation = &"RosesOne"
+script = ExtResource("3_hspek")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1051754859]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1860539278]
+position = Vector2(-1.25, -1.5)
+shape = SubResource("RectangleShape2D_kjtsk")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

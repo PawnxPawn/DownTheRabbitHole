@@ -1,8 +1,48 @@
 [gd_scene format=3 uid="uid://b0i643fc0mtxx"]
 
-[ext_resource type="PackedScene" uid="uid://bii0luey1lng7" path="res://Assets/Background/BackgroundParalax.tscn" id="1_chibq"]
+[ext_resource type="PackedScene" uid="uid://cb7dn6t625x6m" path="res://Assets/Background/LeveTwo/BackgroundParalaxLevel2.tscn" id="1_chibq"]
+[ext_resource type="Script" uid="uid://btqou20ynakuk" path="res://Scenes/Levels/LevelTwo.gd" id="1_jo5k0"]
+[ext_resource type="PackedScene" uid="uid://cttr31v204b41" path="res://Scenes/Entities/Players/Player.tscn" id="3_6p6gl"]
+[ext_resource type="Texture2D" uid="uid://oba1v3sv1m3b" path="res://Assets/Background/LeveTwo/floor-0a6c.png" id="3_21vmn"]
+[ext_resource type="PackedScene" uid="uid://ct4kd4qistnf" path="res://Scenes/Levels/RoseBush.tscn" id="4_6p6gl"]
+[ext_resource type="PackedScene" uid="uid://c8cup0vyn2sl2" path="res://Scenes/Entities/Pickups/CakePickup.tscn" id="4_c3q6p"]
+[ext_resource type="PackedScene" uid="uid://bvftrn7boelik" path="res://Scenes/Entities/Pickups/DrinkPickup.tscn" id="5_7vcdi"]
+[ext_resource type="PackedScene" uid="uid://d2jvbenqnx4h" path="res://Scenes/Entities/Enemies/Enemy.tscn" id="6_21vmn"]
+[ext_resource type="PackedScene" uid="uid://f0qhe2h5ydfj" path="res://Core/Utilities/WinArea.tscn" id="9_7vcdi"]
+[ext_resource type="Script" uid="uid://cvsklghdkdsjc" path="res://Core/Utilities/WinAreaLevel2.gd" id="10_3hbrn"]
+[ext_resource type="Texture2D" uid="uid://ceq81xt7m3mbu" path="res://Assets/NPC/Cheshire/Cheshire.png" id="10_568p4"]
+[ext_resource type="Texture2D" uid="uid://bhtw3wfb2e04o" path="res://Assets/Background/Green_tree.png" id="11_3hbrn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jo5k0"]
+size = Vector2(7680, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21vmn"]
+size = Vector2(20, 402)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2hcf"]
+atlas = ExtResource("10_568p4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ts71"]
+atlas = ExtResource("10_568p4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rqake"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2hcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ts71")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="LevelTwo" type="Node2D" unique_id=113637112]
+script = ExtResource("1_jo5k0")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1815012198]
 z_index = -99
@@ -11,4 +51,128 @@ scroll_offset = Vector2(5, -1)
 repeat_size = Vector2(1280, 0)
 repeat_times = 3
 
-[node name="BackgroundParalax" parent="Parallax2D" unique_id=1629463082 instance=ExtResource("1_chibq")]
+[node name="BackgroundParalaxLevel2" parent="Parallax2D" unique_id=1629463082 instance=ExtResource("1_chibq")]
+
+[node name="Ground" type="TextureRect" parent="." unique_id=2006920483]
+modulate = Color(0.585062, 0.585062, 0.5850621, 1)
+offset_left = -1768.0
+offset_top = -167.0
+offset_right = 5912.0
+offset_bottom = 473.0
+texture = ExtResource("3_21vmn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground" unique_id=1265491497]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D" unique_id=2001518566]
+position = Vector2(3841, 537)
+shape = SubResource("RectangleShape2D_jo5k0")
+
+[node name="CakePickup" parent="Ground/StaticBody2D" unique_id=84181667 instance=ExtResource("4_c3q6p")]
+position = Vector2(2861, 452)
+
+[node name="DrinkPickup" parent="Ground/StaticBody2D" unique_id=10878663 instance=ExtResource("5_7vcdi")]
+position = Vector2(5241.0127, 445.8651)
+
+[node name="Player" parent="." unique_id=877999862 instance=ExtResource("3_6p6gl")]
+z_index = 1
+position = Vector2(7, 293)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1711514666]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1460285358]
+position = Vector2(-19, 191)
+shape = SubResource("RectangleShape2D_21vmn")
+
+[node name="Platforms" type="Node" parent="." unique_id=2145844488]
+
+[node name="Enviornment" type="Node" parent="." unique_id=1117849072]
+
+[node name="RoseBushs" type="Node" parent="." unique_id=1879115793]
+
+[node name="RoseBush" parent="RoseBushs" unique_id=865096236 instance=ExtResource("4_6p6gl")]
+position = Vector2(4140, 290)
+
+[node name="RoseBush2" parent="RoseBushs" unique_id=254649918 instance=ExtResource("4_6p6gl")]
+position = Vector2(1261, 290)
+rose_bush_type = 1
+
+[node name="RoseBush3" parent="RoseBushs" unique_id=22083947 instance=ExtResource("4_6p6gl")]
+position = Vector2(214, 290)
+
+[node name="RoseBush4" parent="RoseBushs" unique_id=41378423 instance=ExtResource("4_6p6gl")]
+position = Vector2(2503, 286)
+rose_bush_type = 1
+
+[node name="RoseBush5" parent="RoseBushs" unique_id=365130395 instance=ExtResource("4_6p6gl")]
+position = Vector2(3080, 290)
+
+[node name="RoseBush6" parent="RoseBushs" unique_id=148772467 instance=ExtResource("4_6p6gl")]
+position = Vector2(662, 293)
+rose_bush_type = 1
+
+[node name="Enemies" type="Node" parent="." unique_id=812396744]
+
+[node name="Enemy" parent="Enemies" unique_id=70780440 instance=ExtResource("6_21vmn")]
+z_index = 1
+position = Vector2(403, 283)
+enemy_type = 8
+patrol_direction_time = 3.0
+
+[node name="Enemy7" parent="Enemies" unique_id=1204295365 instance=ExtResource("6_21vmn")]
+z_index = 1
+position = Vector2(545, 283)
+enemy_type = 8
+patrol_direction_time = 3.0
+
+[node name="Enemy2" parent="Enemies" unique_id=986733825 instance=ExtResource("6_21vmn")]
+z_index = 1
+position = Vector2(694, 281)
+enemy_type = 10
+patrol_direction_time = 3.5
+
+[node name="Enemy3" parent="Enemies" unique_id=1864538385 instance=ExtResource("6_21vmn")]
+z_index = 1
+position = Vector2(1091, 283)
+enemy_type = 11
+patrol_direction_time = 3.0
+
+[node name="Enemy4" parent="Enemies" unique_id=1823732721 instance=ExtResource("6_21vmn")]
+z_index = 1
+position = Vector2(2223, 278)
+enemy_type = 11
+patrol_direction_time = 4.0
+
+[node name="Enemy5" parent="Enemies" unique_id=1510727174 instance=ExtResource("6_21vmn")]
+z_index = 1
+position = Vector2(2372, 297)
+enemy_type = 9
+patrol_direction_time = 5.0
+
+[node name="Enemy6" parent="Enemies" unique_id=266243820 instance=ExtResource("6_21vmn")]
+z_index = 1
+position = Vector2(4118, 257)
+enemy_type = 8
+patrol_direction_time = 4.0
+
+[node name="Enemy8" parent="Enemies" unique_id=1498798143 instance=ExtResource("6_21vmn")]
+z_index = 1
+position = Vector2(2982, 277)
+enemy_type = 8
+patrol_direction_time = 4.0
+
+[node name="WinArea" parent="." unique_id=1507055733 instance=ExtResource("9_7vcdi")]
+position = Vector2(158, 128)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("10_3hbrn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=83343614]
+z_index = 1
+position = Vector2(5359, 115)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_rqake")
+
+[node name="GreenTree" type="Sprite2D" parent="." unique_id=1683754281]
+position = Vector2(5413, 84)
+scale = Vector2(8, 8)
+texture = ExtResource("11_3hbrn")
