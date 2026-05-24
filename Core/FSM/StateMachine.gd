@@ -28,14 +28,14 @@ func init(component_handler: ComponentHandler) -> void:
 
 
 func change_state(state_name: StringName) -> void:
+	print(state_name)
 	if _is_transitioning:
 		push_warning("StateMachine: change_state('%s') called during a transition." % state_name)
 		return
 	
 	if not _states.has(state_name):
-		push_error("StateMachine: state '%s' not found." % state_name)
+		push_error("StateMachine: state '%s' not found. CurrentState: %s" % [state_name, current_state.state_name])
 		return
-	
 	var new_state: State = _states[state_name]
 	_is_transitioning = true
 	

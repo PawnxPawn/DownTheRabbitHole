@@ -6,19 +6,24 @@
 [ext_resource type="Script" uid="uid://c7ty7fal5h25k" path="res://Core/Components/GravityComponent.gd" id="4_8ildv"]
 [ext_resource type="Script" uid="uid://bbes4yv7s8fo6" path="res://Core/Components/MoveComponent.gd" id="5_oet8y"]
 [ext_resource type="Script" uid="uid://c2yuguogg3wvo" path="res://Core/FSM/StateMachine.gd" id="6_ynm40"]
+[ext_resource type="Script" uid="uid://cu1rf8lqg4wlc" path="res://Core/Components/HealthComponent.gd" id="7_2hmx1"]
 [ext_resource type="Script" uid="uid://c8xm625ihwcl0" path="res://Core/Components/JumpComponent.gd" id="7_8ildv"]
 [ext_resource type="Script" uid="uid://dlg3g6fyga4wa" path="res://Scenes/Entities/Players/States/PlayerIdle.gd" id="7_cbjid"]
 [ext_resource type="Script" uid="uid://bge753gyqgnot" path="res://Scenes/Entities/Players/States/PlayerMove.gd" id="8_sod1g"]
 [ext_resource type="Script" uid="uid://cvfrllxfyt77b" path="res://Scenes/Entities/Players/States/PlayerJump.gd" id="10_tqe6c"]
 [ext_resource type="Texture2D" uid="uid://di87xhcgivx4j" path="res://Assets/Alice/Alice_Curtsy-sheet.png" id="11_ynm40"]
+[ext_resource type="Script" uid="uid://dth604pxrxwjl" path="res://Scenes/Entities/Players/States/PlayerHurt.gd" id="12_avkiy"]
 [ext_resource type="Texture2D" uid="uid://cmrssntg1dru5" path="res://Assets/Alice/Alice_Walking-sheet.png" id="12_cbjid"]
 [ext_resource type="Texture2D" uid="uid://saa5xisxg6l3" path="res://Assets/Alice/Alice_WalkingnJumping-sheet.png" id="13_sod1g"]
+[ext_resource type="Script" uid="uid://dt2v2a41gqe6v" path="res://Scenes/Entities/Players/States/WinState.gd" id="13_t82er"]
 [ext_resource type="Script" uid="uid://b72iblka7apip" path="res://Core/Components/Hitbox/Hitbox.gd" id="14_cbjid"]
 [ext_resource type="Script" uid="uid://cnek7tq1gystt" path="res://Core/Components/PickupComponent/PickupComponent.gd" id="15_sod1g"]
+[ext_resource type="Texture2D" uid="uid://c76n577gii824" path="res://Assets/UI/Better_health_Box-sheet.png" id="16_wom6s"]
+[ext_resource type="Script" uid="uid://b4yabj4wqx33v" path="res://Core/Utilities/TextToPNG/text_to_png.gd" id="17_n0q0x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6c33f"]
 radius = 7.0
-height = 32.0
+height = 64.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wom6s"]
 atlas = ExtResource("11_ynm40")
@@ -94,7 +99,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t82er")
 }],
-"loop": true,
+"loop": false,
 "name": &"Curtsy",
 "speed": 5.0
 }, {
@@ -148,6 +153,22 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sod1g"]
 radius = 6.0
+height = 64.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87rjk"]
+atlas = ExtResource("16_wom6s")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6ngh"]
+atlas = ExtResource("16_wom6s")
+region = Rect2(703, 0, 514, 360)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wom6s"]
+load_path = "res://.godot/imported/Better_health_Box-sheet.png-e36e7ddc8e1d1c74afe2a0f4b9a9b82b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1pmp"]
+atlas = SubResource("CompressedTexture2D_wom6s")
+region = Rect2(63, 0, 514, 360)
 
 [node name="Player" type="CharacterBody2D" unique_id=877999862]
 collision_layer = 2
@@ -155,19 +176,19 @@ collision_mask = 3
 script = ExtResource("1_rnj17")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1761057293]
-position = Vector2(-1, 0)
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_6c33f")
 
 [node name="ComponentHandler" type="Node" parent="." unique_id=984005704]
 unique_name_in_owner = true
 script = ExtResource("2_4xrd3")
-default_components = Array[Script]([ExtResource("3_tqe6c"), ExtResource("4_8ildv"), ExtResource("5_oet8y"), ExtResource("7_8ildv")])
+default_components = Array[Script]([ExtResource("3_tqe6c"), ExtResource("4_8ildv"), ExtResource("5_oet8y"), ExtResource("7_8ildv"), ExtResource("7_2hmx1")])
 metadata/_custom_type_script = "uid://f8jmr8kubvtq"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1781170429]
 unique_name_in_owner = true
 script = ExtResource("6_ynm40")
-state_scripts = Array[GDScript]([ExtResource("7_cbjid"), ExtResource("8_sod1g"), ExtResource("10_tqe6c")])
+state_scripts = Array[GDScript]([ExtResource("7_cbjid"), ExtResource("8_sod1g"), ExtResource("10_tqe6c"), ExtResource("12_avkiy"), ExtResource("13_t82er")])
 metadata/_custom_type_script = "uid://c2yuguogg3wvo"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=476638083]
@@ -177,7 +198,9 @@ position = Vector2(0, -114)
 position = Vector2(1, -11)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_87rjk")
-animation = &"Fall"
+animation = &"Curtsy"
+frame = 4
+frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=949408145]
 collision_layer = 2
@@ -186,8 +209,7 @@ script = ExtResource("14_cbjid")
 metadata/_custom_type_script = "uid://b72iblka7apip"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=25952689]
-visible = false
-position = Vector2(-1, 0)
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_sod1g")
 
 [node name="PickupComponent" type="Area2D" parent="." unique_id=1867160276]
@@ -197,6 +219,69 @@ script = ExtResource("15_sod1g")
 metadata/_custom_type_script = "uid://cnek7tq1gystt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent" unique_id=2073446846]
-visible = false
-position = Vector2(-1, 0)
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_6c33f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=800052000]
+
+[node name="BackgroundHealthBar" type="TextureRect" parent="CanvasLayer" unique_id=417835980]
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 646.0
+offset_bottom = 369.0
+scale = Vector2(0.333, 0.333)
+texture = SubResource("AtlasTexture_87rjk")
+
+[node name="HealthProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1376234429]
+offset_left = 27.0
+offset_top = 9.000001
+offset_right = 667.0
+offset_bottom = 369.0
+scale = Vector2(0.333, 0.333)
+value = 100.0
+texture_under = SubResource("AtlasTexture_m6ngh")
+texture_progress = SubResource("AtlasTexture_w1pmp")
+
+[node name="TimeToText" type="Control" parent="CanvasLayer" unique_id=1946509869]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 38.0
+offset_top = 21.0
+offset_right = 78.0
+offset_bottom = 61.0
+script = ExtResource("17_n0q0x")
+text = "01M02S"
+font_size = 200
+seperation = 1
+metadata/_custom_type_script = "uid://b4yabj4wqx33v"
+
+[node name="TimeToTextShadow" type="Control" parent="CanvasLayer/TimeToText" unique_id=144729836]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_n0q0x")
+text = "01M02S "
+font_size = 208
+seperation = 1
+metadata/_custom_type_script = "uid://b4yabj4wqx33v"
+
+[node name="Timer" type="Timer" parent="." unique_id=2044725935]
+autostart = true
+
+[node name="IframeTimer" type="Timer" parent="." unique_id=922303266]
+one_shot = true
+
+[node name="Cake" type="Timer" parent="." unique_id=144416231]
+wait_time = 5.0
+one_shot = true
+
+[node name="Cookie" type="Timer" parent="." unique_id=167714751]
+wait_time = 5.0
+one_shot = true
+
+[node name="Drink" type="Timer" parent="." unique_id=2120506267]
+wait_time = 5.0
+one_shot = true
