@@ -7,7 +7,7 @@ static var _participating_entities = {}
 # Add dialog paths here for quick access 
 static var COMMON_DIALOGUE_PATHS: Dictionary[String, String] = {
 	# example dialog
-	"WELCOME": "res://Core/Dialogue/welcome.dialogue"
+	"WELCOME": "res://Core/Dialogue/DialogueScripts/welcome.dialogue"
 }
 
 # Executes when script ends
