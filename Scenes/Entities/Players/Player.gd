@@ -21,6 +21,8 @@ class_name Player extends Entity
 @onready var cookie: Timer = $Cookie
 @onready var drink: Timer = $Drink
 
+var invincible:bool = false
+
 
 var health: HealthComponent
 var damage_loss_multiplyier: float = 1.0
@@ -89,6 +91,7 @@ func _on_health_changed() -> void:
 
 
 func _take_damage(amount: float, is_time_damage:bool = true) -> void:
+	if invincible: return
 	if is_time_damage:
 		health.hp += amount
 	else:
@@ -139,7 +142,7 @@ func _powerup_timeout(powerup: StringName) -> void:
 func win() -> void:
 	print_debug("Player.win")
 	DialogueUtility.register_participant("player", self)
-	DialogueUtility.register_callback(_transition_to_next_level())
+	DialogueUtility.register_callback(_transition_to_next_level)
 	DialogueUtility.start_dialogue(_get_end_dialogue_for_current_level())
 
 
@@ -170,13 +173,12 @@ func _get_start_dialogue_for_current_level():
 	return ""
 
 func _get_end_dialogue_for_current_level():
-	var current_scene = self.get_tree().current_scene.name
-	print_debug("Current scene:", current_scene)
+	var current_scene = Services.scene_loader.current_scene
 	
 	match current_scene:
-		"LevelOne":
+		Services.scene_loader.Scenes.LEVEL_ONE:
 			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_ONE_END"]
-		"LevelTwo":
+		Services.scene_loader.Scenes.LEVEL_TWO:
 			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_TWO_END"]
-		"LevelThree":
+		Services.scene_loader.Scenes.LEVEL_THREE:
 			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_THREE_END"]

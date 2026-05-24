@@ -292,7 +292,7 @@ patrol_direction_time = 0.5
 
 [node name="Player" parent="." unique_id=877999862 instance=ExtResource("5_m7drd")]
 position = Vector2(181, 268)
-starting_health_time = 35.0
+starting_health_time = 45.0
 
 [node name="CakePickup" parent="." unique_id=84181667 instance=ExtResource("7_1bf4a")]
 position = Vector2(946, 238)

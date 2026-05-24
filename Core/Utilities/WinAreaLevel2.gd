@@ -16,4 +16,4 @@ func _on_body_enter(body:Node) -> void:
 	print("Win2")
 	if bushes_completed:
 		print("Win3")
-		player.win(dialogue_trigger)
+		player.win()

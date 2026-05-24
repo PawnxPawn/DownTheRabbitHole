@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://dt2v2a41gqe6v" path="res://Scenes/Entities/Players/States/WinState.gd" id="13_t82er"]
 [ext_resource type="Script" uid="uid://ynk4mnkn66l3" path="res://Scenes/Entities/Players/States/GameOverState.gd" id="14_1uj7u"]
 [ext_resource type="Script" uid="uid://b72iblka7apip" path="res://Core/Components/Hitbox/Hitbox.gd" id="14_cbjid"]
-[ext_resource type="Script" uid="uid://jog507nd1hde" path="res://Scenes/Entities/Players/States/PlayerTalk.gd" id="15_s58pu"]
+[ext_resource type="Script" path="res://Scenes/Entities/Players/States/PlayerTalk.gd" id="15_s58pu"]
 [ext_resource type="Script" uid="uid://cnek7tq1gystt" path="res://Core/Components/PickupComponent/PickupComponent.gd" id="15_sod1g"]
 [ext_resource type="Texture2D" uid="uid://c76n577gii824" path="res://Assets/UI/Better_health_Box-sheet.png" id="16_wom6s"]
 [ext_resource type="Script" uid="uid://b4yabj4wqx33v" path="res://Core/Utilities/TextToPNG/text_to_png.gd" id="17_n0q0x"]

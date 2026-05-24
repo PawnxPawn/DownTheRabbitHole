@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://d0kvtbigjqddk"]
+
+[ext_resource type="PackedScene" uid="uid://cb7dn6t625x6m" path="res://Assets/Background/LeveTwo/BackgroundParalaxLevel2.tscn" id="1_3nfsi"]
+[ext_resource type="Texture2D" uid="uid://drr5ydhlsqrgx" path="res://Assets/Background/Level3/Middle_1.png" id="2_l1tae"]
+[ext_resource type="Texture2D" uid="uid://bwinyutkh5ccg" path="res://Assets/Background/Level3/Base_pixel_floor_level_3.png" id="3_ncgcw"]
+[ext_resource type="PackedScene" uid="uid://cttr31v204b41" path="res://Scenes/Entities/Players/Player.tscn" id="4_wjaa7"]
+[ext_resource type="Texture2D" uid="uid://doxjcidi3tpno" path="res://Assets/Background/Level3/22.png" id="5_g8ik3"]
+[ext_resource type="Texture2D" uid="uid://0i6k2bbdaf8b" path="res://Assets/Background/Level3/23.png" id="6_l4irk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncgcw"]
+size = Vector2(7680, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaa7"]
+size = Vector2(20, 355)
+
+[node name="LevelThree" type="Node2D" unique_id=1112382029]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=739023699]
+z_index = -99
+scroll_scale = Vector2(1.05, 0)
+scroll_offset = Vector2(5, -1)
+repeat_size = Vector2(1280, 0)
+repeat_times = 3
+
+[node name="BackgroundParalaxLevel2" parent="Parallax2D" unique_id=1629463082 instance=ExtResource("1_3nfsi")]
+texture = ExtResource("2_l1tae")
+
+[node name="TextureRect" parent="Parallax2D/BackgroundParalaxLevel2" index="0" unique_id=1746857206]
+texture = ExtResource("2_l1tae")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=184573534]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ground" unique_id=535362891]
+offset_left = -564.99994
+offset_top = -63.0
+offset_right = 12899.0
+offset_bottom = 1017.0
+scale = Vector2(0.333, 0.333)
+
+[node name="TextureRect" type="TextureRect" parent="Ground/HBoxContainer" unique_id=1068965000]
+modulate = Color(0.6872149, 0.68721503, 0.6872149, 1)
+layout_mode = 2
+texture = ExtResource("3_ncgcw")
+
+[node name="TextureRect6" type="TextureRect" parent="Ground/HBoxContainer" unique_id=1684060690]
+modulate = Color(0.6872149, 0.68721503, 0.6872149, 1)
+layout_mode = 2
+texture = ExtResource("3_ncgcw")
+
+[node name="TextureRect7" type="TextureRect" parent="Ground/HBoxContainer" unique_id=922692972]
+modulate = Color(0.6872149, 0.68721503, 0.6872149, 1)
+layout_mode = 2
+texture = ExtResource("3_ncgcw")
+
+[node name="TextureRect2" type="TextureRect" parent="Ground/HBoxContainer" unique_id=644564261]
+modulate = Color(0.6872149, 0.68721503, 0.6872149, 1)
+layout_mode = 2
+texture = ExtResource("3_ncgcw")
+
+[node name="TextureRect3" type="TextureRect" parent="Ground/HBoxContainer" unique_id=1726840214]
+modulate = Color(0.6872149, 0.68721503, 0.6872149, 1)
+layout_mode = 2
+texture = ExtResource("3_ncgcw")
+
+[node name="TextureRect4" type="TextureRect" parent="Ground/HBoxContainer" unique_id=26284709]
+modulate = Color(0.6872149, 0.68721503, 0.6872149, 1)
+layout_mode = 2
+texture = ExtResource("3_ncgcw")
+
+[node name="TextureRect5" type="TextureRect" parent="Ground/HBoxContainer" unique_id=136097070]
+modulate = Color(0.6872149, 0.68721503, 0.6872149, 1)
+layout_mode = 2
+texture = ExtResource("3_ncgcw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1145824054]
+position = Vector2(2521, 278)
+shape = SubResource("RectangleShape2D_ncgcw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=272995435]
+position = Vector2(0, 111)
+shape = SubResource("RectangleShape2D_wjaa7")
+
+[node name="Player" parent="." unique_id=877999862 instance=ExtResource("4_wjaa7")]
+position = Vector2(98, 239)
+
+[node name="22" type="Sprite2D" parent="." unique_id=409243766]
+position = Vector2(637, 220)
+texture = ExtResource("5_g8ik3")
+
+[node name="23" type="Sprite2D" parent="." unique_id=1753648483]
+position = Vector2(640, 251)
+scale = Vector2(4, 2)
+texture = ExtResource("6_l4irk")
+
+[editable path="Parallax2D/BackgroundParalaxLevel2"]

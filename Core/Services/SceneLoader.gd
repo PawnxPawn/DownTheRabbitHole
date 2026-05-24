@@ -39,7 +39,7 @@ func _swap_scene(scene: Scenes) -> void:
 	_clean_up()
 	
 	var instance = _PRELOADED_SCENES[scene].instantiate()
-	scene_manager.add_child(instance)
+	scene_manager.call_deferred("add_child",instance)
 	_loaded_scenes[scene] = instance
 	current_scene = scene
 

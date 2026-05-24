@@ -76,11 +76,16 @@ position = Vector2(5241.0127, 445.8651)
 [node name="Player" parent="." unique_id=877999862 instance=ExtResource("3_6p6gl")]
 z_index = 1
 position = Vector2(7, 293)
+starting_health_time = 60.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1711514666]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1460285358]
 position = Vector2(-19, 191)
+shape = SubResource("RectangleShape2D_21vmn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1087999121]
+position = Vector2(5284, 204)
 shape = SubResource("RectangleShape2D_21vmn")
 
 [node name="Platforms" type="Node" parent="." unique_id=2145844488]
