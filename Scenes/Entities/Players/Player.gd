@@ -29,11 +29,11 @@ func _ready() -> void:
 	_set_sm()
 	_connect_signals()
 	health_progress_bar.value = 60.0
-	
+
 	DialogueUtility.register_participant("player", self)
+	DialogueUtility.register_callback(_transition_to_next_level)
 	DialogueUtility.start_dialogue(
-		DialogueUtility.COMMON_DIALOGUE_PATHS["WELCOME"],
-		null
+		_get_start_dialogue_for_current_level()
 	)
 
 
@@ -131,7 +131,46 @@ func _powerup_timeout(powerup: StringName) -> void:
 
 func win() -> void:
 	print_debug("Player.win")
-	DialogueUtility.start_dialogue(
-		DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_ONE_END"],
-		null
-	)
+	DialogueUtility.register_callback(_transition_to_next_level())
+	DialogueUtility.start_dialogue(_get_end_dialogue_for_current_level())
+	
+
+
+func _transition_to_next_level():
+	var current_scene = self.get_tree().current_scene.name
+	var next_scene
+	match current_scene:
+		"LevelOne":
+			next_scene = SceneLoader._PRELOADED_SCENES[SceneLoader.Scenes.LEVEL_TWO]
+		"LevelTwo":
+			next_scene =  SceneLoader._PRELOADED_SCENES[SceneLoader.Scenes.LEVEL_THREE]
+		#"LevelThree":
+			#return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_THREE_BEGIN"]
+	
+	Services.scene_loader.load_scene(next_scene)
+
+
+func _get_start_dialogue_for_current_level():
+	var current_scene = self.get_tree().current_scene.name
+	print_debug("Current scene: " + current_scene)
+	
+	match current_scene:
+		"LevelOne":
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_ONE_BEGIN"]
+		"LevelTwo":
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_TWO_BEGIN"]
+		"LevelThree":
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_THREE_BEGIN"]
+			
+
+func _get_end_dialogue_for_current_level():
+	var current_scene = self.get_tree().current_scene.name
+	print_debug("Current scene: " + current_scene)
+	
+	match current_scene:
+		"LevelOne":
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_ONE_END"]
+		"LevelTwo":
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_TWO_END"]
+		"LevelThree":
+			return DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_THREE_END"]
