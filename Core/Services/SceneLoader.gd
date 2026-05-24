@@ -9,7 +9,7 @@ enum Scenes {
 
 const _PRELOADED_SCENES = {
 	Scenes.MAIN_MENU: preload("uid://dpr8yeruxbl0h"),
-	Scenes.LEVEL_ONE: preload("uid://0x1cq8hkktby"),
+	Scenes.LEVEL_ONE: preload("uid://w7rthkqnxb3w"),
 	Scenes.LEVEL_TWO: preload("uid://0x1cq8hkktby"),
 	Scenes.LEVEL_THREE: preload("uid://0x1cq8hkktby"),
 	
