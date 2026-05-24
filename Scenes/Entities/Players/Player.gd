@@ -28,13 +28,13 @@ var damage_loss_multiplyier: float = 1.0
 func _ready() -> void:
 	_set_sm()
 	_connect_signals()
-	health_progress_bar.value = 100.0
+	health_progress_bar.value = 60.0
 	
 	DialogueUtility.register_participant("player", self)
-	#DialogueUtility.start_dialogue(
-		#DialogueUtility.COMMON_DIALOGUE_PATHS["WELCOME"],
-		#self
-	#)
+	DialogueUtility.start_dialogue(
+		DialogueUtility.COMMON_DIALOGUE_PATHS["WELCOME"],
+		null
+	)
 
 
 func _set_sm() -> void:
@@ -129,5 +129,9 @@ func _powerup_timeout(powerup: StringName) -> void:
 			return
 
 
-func win(dialogue: ) -> void:
-	pass
+func win() -> void:
+	print_debug("Player.win")
+	DialogueUtility.start_dialogue(
+		DialogueUtility.COMMON_DIALOGUE_PATHS["LEVEL_ONE_END"],
+		null
+	)

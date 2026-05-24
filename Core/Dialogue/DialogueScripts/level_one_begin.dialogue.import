@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bhfd6aof4vbyf"
+path="res://.godot/imported/level_one_begin.dialogue-dcebbe4334dfad341488c839a1f580c4.tres"
+
+[deps]
+
+source_file="res://Core/Dialogue/DialogueScripts/level_one_begin.dialogue"
+dest_files=["res://.godot/imported/level_one_begin.dialogue-dcebbe4334dfad341488c839a1f580c4.tres"]
+
+[params]
+
+defaults=true

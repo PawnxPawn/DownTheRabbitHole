@@ -7,7 +7,11 @@ static var _participating_entities = {}
 # Add dialog paths here for quick access 
 static var COMMON_DIALOGUE_PATHS: Dictionary[String, String] = {
 	# example dialog
-	"WELCOME": "res://Core/Dialogue/DialogueScripts/welcome.dialogue"
+	"WELCOME": "res://Core/Dialogue/DialogueScripts/welcome.dialogue",
+	
+	# level one
+	"LEVEL_ONE_BEGIN": "res://Core/Dialogue/DialogueScripts/level_one_begin.dialogue",
+	"LEVEL_ONE_END": "res://Core/Dialogue/DialogueScripts/level_one_end.dialogue",
 }
 
 # Executes when script ends
@@ -27,18 +31,29 @@ static func register_participant(entity_key: String, entity: Node):
 # The entity is used to position the dialog box at the start
 static func start_dialogue(path: String, entity: Node):
 	assert(path, "Expected a valid path, but received: '" + path + "'.")
-	assert(entity, "Expected a character node.")
-	
 	var dialog_res = load(path)
-	var balloon = DialogueManager.show_dialogue_balloon(dialog_res)
-	_balloon = balloon
 	
+	if entity:
+		print_debug("Entity passed. Initializing dialog above entity.")
+		var balloon = DialogueManager.show_dialogue_balloon(dialog_res)
+		_balloon = balloon
+		
+		# Set size scale
+		balloon.scale = Vector2(0.3, 0.3)
+		_place_dialogue_ballon_above_entity(entity)
+	else:
+		print_debug("No entity passed. Initializing global dialog.")
+		var balloon_scene = load("res://Core/Dialogue/DialogueBalloon/global_balloon.tscn")
+		DialogueManager.show_dialogue_balloon_scene(
+			balloon_scene,
+			dialog_res,
+			""
+		)
+		
 	# Add listener when dialog reaches the end
 	DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
 	
-	# Set size scale
-	balloon.scale = Vector2(0.3, 0.3)
-	_place_dialogue_ballon_above_entity(entity)
+	
 
 
 static func _place_dialogue_ballon_above_entity(entity: Node):
