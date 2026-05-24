@@ -5,6 +5,8 @@ class_name Player extends Entity
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Hitbox = $Hitbox
 @onready var pickup_component: PickupComponent = $PickupComponent
+@onready var game_over: Control = $CanvasLayer/GameOver
+@onready var try_again: TextureButton = $CanvasLayer/GameOver/TryAgain
 
 
 @onready var health_progress_bar: TextureProgressBar = $CanvasLayer/HealthProgressBar
@@ -29,10 +31,10 @@ func _ready() -> void:
 	health_progress_bar.value = 100.0
 	
 	DialogueUtility.register_participant("player", self)
-	DialogueUtility.start_dialogue(
-		DialogueUtility.COMMON_DIALOGUE_PATHS["WELCOME"],
-		self
-	)
+	#DialogueUtility.start_dialogue(
+		#DialogueUtility.COMMON_DIALOGUE_PATHS["WELCOME"],
+		#self
+	#)
 
 
 func _set_sm() -> void:
@@ -59,6 +61,7 @@ func _connect_signals() -> void:
 	cake.timeout.connect(_powerup_timeout.bind(&"CAKE"))
 	cookie.timeout.connect(_powerup_timeout.bind(&"COOKIE"))
 	drink.timeout.connect(_powerup_timeout.bind(&"DRINK"))
+	try_again.button_up.connect(func(): Services.scene_loader.load_scene(Services.scene_loader.current_scene))
 
 
 func _on_moved(direction:float) -> void:
@@ -88,7 +91,8 @@ func _take_damage(amount: float, is_time_damage:bool = true) -> void:
 			_sm.change_state(&"Hurt")
 
 func _die() -> void:
-	pass
+	_sm.change_state(&"GameOver")
+	game_over.visible = true
 
 func _on_item_pickuped(item:StringName) -> void:
 	
@@ -123,3 +127,7 @@ func _powerup_timeout(powerup: StringName) -> void:
 			var move: MoveComponent = _handler.get_component(MoveComponent)
 			move.speed -= 10
 			return
+
+
+func win(dialogue: ) -> void:
+	pass

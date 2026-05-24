@@ -3,17 +3,23 @@ class_name SceneLoader
 enum Scenes {
 	MAIN_MENU,
 	LEVEL_ONE,
+	LEVEL_TWO,
+	LEVEL_THREE
 }
 
 const _PRELOADED_SCENES = {
 	Scenes.MAIN_MENU: preload("uid://dpr8yeruxbl0h"),
-	Scenes.LEVEL_ONE: preload("uid://0x1cq8hkktby")
+	Scenes.LEVEL_ONE: preload("uid://0x1cq8hkktby"),
+	Scenes.LEVEL_TWO: preload("uid://0x1cq8hkktby"),
+	Scenes.LEVEL_THREE: preload("uid://0x1cq8hkktby"),
+	
 }
 
 
 var scene_manager: Node
 
 var is_transitioning: bool = false
+var current_scene:Scenes
 var _loaded_scenes:Dictionary = {}
 
 
@@ -30,15 +36,13 @@ func load_scene(scene:Scenes) -> void:
 
 
 func _swap_scene(scene: Scenes) -> void:
-	if _loaded_scenes.has(scene):
-		push_warning("SceneLoader: %s already is loaded." % Scenes.keys()[scene])
-		return
 	
 	_clean_up()
 	
 	var instance = _PRELOADED_SCENES[scene].instantiate()
 	scene_manager.add_child(instance)
 	_loaded_scenes[scene] = instance
+	current_scene = scene
 
 
 func _clean_up() -> void:

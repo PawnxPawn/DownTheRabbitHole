@@ -16,10 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://cmrssntg1dru5" path="res://Assets/Alice/Alice_Walking-sheet.png" id="12_cbjid"]
 [ext_resource type="Texture2D" uid="uid://saa5xisxg6l3" path="res://Assets/Alice/Alice_WalkingnJumping-sheet.png" id="13_sod1g"]
 [ext_resource type="Script" uid="uid://dt2v2a41gqe6v" path="res://Scenes/Entities/Players/States/WinState.gd" id="13_t82er"]
+[ext_resource type="Script" uid="uid://ynk4mnkn66l3" path="res://Scenes/Entities/Players/States/GameOverState.gd" id="14_1uj7u"]
 [ext_resource type="Script" uid="uid://b72iblka7apip" path="res://Core/Components/Hitbox/Hitbox.gd" id="14_cbjid"]
 [ext_resource type="Script" uid="uid://cnek7tq1gystt" path="res://Core/Components/PickupComponent/PickupComponent.gd" id="15_sod1g"]
 [ext_resource type="Texture2D" uid="uid://c76n577gii824" path="res://Assets/UI/Better_health_Box-sheet.png" id="16_wom6s"]
 [ext_resource type="Script" uid="uid://b4yabj4wqx33v" path="res://Core/Utilities/TextToPNG/text_to_png.gd" id="17_n0q0x"]
+[ext_resource type="Texture2D" uid="uid://bsy0xlkhmuhtx" path="res://Assets/MainMenu/Button.png" id="21_4vg5v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6c33f"]
 radius = 7.0
@@ -170,6 +172,17 @@ load_path = "res://.godot/imported/Better_health_Box-sheet.png-e36e7ddc8e1d1c74a
 atlas = SubResource("CompressedTexture2D_wom6s")
 region = Rect2(63, 0, 514, 360)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjk3l"]
+atlas = ExtResource("21_4vg5v")
+region = Rect2(4443, 824, 704, 120)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vapy7"]
+load_path = "res://.godot/imported/Button.png-c72c276a660b9f15ec18202020812642.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mx8l"]
+atlas = SubResource("CompressedTexture2D_vapy7")
+region = Rect2(603, 824, 704, 120)
+
 [node name="Player" type="CharacterBody2D" unique_id=877999862]
 collision_layer = 2
 collision_mask = 3
@@ -188,7 +201,7 @@ metadata/_custom_type_script = "uid://f8jmr8kubvtq"
 [node name="StateMachine" type="Node" parent="." unique_id=1781170429]
 unique_name_in_owner = true
 script = ExtResource("6_ynm40")
-state_scripts = Array[GDScript]([ExtResource("7_cbjid"), ExtResource("8_sod1g"), ExtResource("10_tqe6c"), ExtResource("12_avkiy"), ExtResource("13_t82er")])
+state_scripts = Array[GDScript]([ExtResource("7_cbjid"), ExtResource("8_sod1g"), ExtResource("10_tqe6c"), ExtResource("12_avkiy"), ExtResource("13_t82er"), ExtResource("14_1uj7u")])
 metadata/_custom_type_script = "uid://c2yuguogg3wvo"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=476638083]
@@ -266,6 +279,73 @@ script = ExtResource("17_n0q0x")
 text = "01M02S "
 font_size = 208
 seperation = 1
+metadata/_custom_type_script = "uid://b4yabj4wqx33v"
+
+[node name="GameOver" type="Control" parent="CanvasLayer" unique_id=897020176]
+visible = false
+z_index = 4
+layout_mode = 3
+anchors_preset = 0
+offset_left = -37.0
+offset_top = -27.0
+offset_right = 644.0
+offset_bottom = 390.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOver" unique_id=2047343838]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextToPng" type="Control" parent="CanvasLayer/GameOver" unique_id=1326508477]
+anchors_preset = 0
+offset_left = 168.0
+offset_top = 120.0
+offset_right = 168.0
+offset_bottom = 120.0
+script = ExtResource("17_n0q0x")
+text = "Your Late"
+font_size = 400
+metadata/_custom_type_script = "uid://b4yabj4wqx33v"
+
+[node name="TryAgain" type="TextureButton" parent="CanvasLayer/GameOver" unique_id=1722920101]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 235.0
+offset_right = 881.0
+offset_bottom = 355.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_vjk3l")
+texture_pressed = SubResource("AtlasTexture_4mx8l")
+texture_hover = SubResource("AtlasTexture_vjk3l")
+
+[node name="TextToPng" type="Control" parent="CanvasLayer/GameOver/TryAgain" unique_id=691657836]
+z_index = 1
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 26.0
+offset_right = 190.0
+offset_bottom = 66.0
+mouse_filter = 2
+script = ExtResource("17_n0q0x")
+text = "Try Again"
+font_size = 400
+metadata/_custom_type_script = "uid://b4yabj4wqx33v"
+
+[node name="TextToPng2" type="Control" parent="CanvasLayer/GameOver/TryAgain/TextToPng" unique_id=1034852258]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+anchors_preset = 0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 42.0
+offset_bottom = 38.0
+script = ExtResource("17_n0q0x")
+text = "Try Again"
+font_size = 405
 metadata/_custom_type_script = "uid://b4yabj4wqx33v"
 
 [node name="Timer" type="Timer" parent="." unique_id=2044725935]

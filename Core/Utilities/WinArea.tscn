@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://f0qhe2h5ydfj"]
+
+[ext_resource type="Script" uid="uid://bsjypk8tqaxbf" path="res://Core/Utilities/WinArea.gd" id="1_mxqwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_202xy"]
+size = Vector2(240, 640)
+
+[node name="WinArea" type="Area2D" unique_id=1507055733]
+script = ExtResource("1_mxqwv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=479666522]
+position = Vector2(5001, -32)
+shape = SubResource("RectangleShape2D_202xy")
