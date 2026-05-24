@@ -66,6 +66,7 @@ static func register_callback(callback):
 # If an entity is passed, the dialogue balloon is positioned above the entity
 # Otherwise, the global dialogue balloon is used
 static func start_dialogue(path: String, entity: Node = null):
+	if not path: return
 	assert(path, "Expected a valid path, but received: '" + path + "'.")
 	var dialog_res = load(path)
 	
