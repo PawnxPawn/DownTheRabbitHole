@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 func _connect_signals() -> void:
 	for button in buttons.get_children():
 		if not button is Button and not button is TextureButton: continue
-		button.button_down.connect(_on_button_pressed.bind(button))
+		button.button_up.connect(_on_button_pressed.bind(button))
 	
 	Services.ui.ui_hidden.connect(_on_ui_hidden)
 

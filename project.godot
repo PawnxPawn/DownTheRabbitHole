@@ -82,6 +82,10 @@ Interact={
 ]
 }
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Core/Dialogue/DialogueScripts/welcome.dialogue")
+
 [layer_names]
 
 2d_physics/layer_1="Environment"
