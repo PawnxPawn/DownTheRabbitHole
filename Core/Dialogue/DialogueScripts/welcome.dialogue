@@ -1,0 +1,16 @@
+~ start
+#do DialogueUtility.swap_speakers("Alice")
+Alice: Greetings, I'm Alice. Welcome to wonderland!
+Are you ready to play?
+
+# Options
+#- Yes
+#	Alice: Let's try that again!
+#	=> start
+#- No
+#	Alice: Aww, maybe next time...
+#	=> END
+#- Of course!!!
+#	Alice: That's the spirit!
+=> END
+

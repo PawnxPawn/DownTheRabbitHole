@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c7ty7fal5h25k" path="res://Core/Components/GravityComponent.gd" id="4_8ildv"]
 [ext_resource type="Script" uid="uid://bbes4yv7s8fo6" path="res://Core/Components/MoveComponent.gd" id="5_oet8y"]
 [ext_resource type="Script" uid="uid://c2yuguogg3wvo" path="res://Core/FSM/StateMachine.gd" id="6_ynm40"]
-[ext_resource type="Script" path="res://Core/Components/JumpComponent.gd" id="7_8ildv"]
+[ext_resource type="Script" uid="uid://c8xm625ihwcl0" path="res://Core/Components/JumpComponent.gd" id="7_8ildv"]
 [ext_resource type="Script" uid="uid://dlg3g6fyga4wa" path="res://Scenes/Entities/Players/States/PlayerIdle.gd" id="7_cbjid"]
 [ext_resource type="Script" uid="uid://bge753gyqgnot" path="res://Scenes/Entities/Players/States/PlayerMove.gd" id="8_sod1g"]
 [ext_resource type="Script" uid="uid://cvfrllxfyt77b" path="res://Scenes/Entities/Players/States/PlayerJump.gd" id="10_tqe6c"]
