@@ -8,6 +8,11 @@ func _ready() -> void:
 	_set_sm()
 	_connect_signals()
 	
+	
+	DialogueUtility.start_dialogue(
+		DialogueUtility.COMMON_DIALOGUE_PATHS["WELCOME"],
+		self
+	)
 
 
 func _set_sm() -> void:
